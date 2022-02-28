@@ -1,4 +1,7 @@
+org\csc133\a2\gameobjects\Moveable.class
 org\csc133\a2\AppMain.class
+org\csc133\a2\gameobjects\Fixed.class
+org\csc133\a2\gameobjects\GameObject.class
 org\csc133\a2\gameobjects\River.class
 org\csc133\a2\gameobjects\Fire.class
 org\csc133\a2\gameobjects\Helicopter.class
