@@ -5,12 +5,10 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.Game;
 
-public class River {
+public class River extends Fixed{
 
-    private Point location;
-
-    public River() {
-        location = new Point(0, (Game.DISP_H / 4));
+    public River(Point inputLocation) {
+        super(inputLocation);
     }
 
     public void draw(Graphics g) {

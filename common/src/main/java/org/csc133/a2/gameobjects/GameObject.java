@@ -9,8 +9,11 @@ public class GameObject {
     private Dimension dim;
     private int color;
 
-    public GameObject(){
+    public GameObject(Point inputPoint, Dimension inputDim, int inputColor){
 
     }
 
+    public GameObject() {
+
+    }
 }

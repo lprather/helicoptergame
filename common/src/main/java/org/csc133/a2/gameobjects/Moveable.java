@@ -14,4 +14,12 @@ public class Moveable extends GameObject{
 
     }
 
+    public int getHeading(){
+        return heading;
+    }
+
+    public int getSpeed(){
+        return speed;
+    }
+
 }

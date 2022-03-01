@@ -4,6 +4,7 @@ import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.Font;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fire;
 import org.csc133.a2.gameobjects.Helicopter;
 import org.csc133.a2.gameobjects.Helipad;
@@ -33,8 +34,9 @@ public class GameWorld {
         gameWon = false;
         numFiresOut = 0;
         gameIsOver = false;
-        river = new River();
-        helipad = new Helipad();
+        river = new River(new Point(0, (Game.DISP_H / 4)));
+        helipad = new Helipad(new Point(Game.DISP_W / 2 - Game.DISP_W / 15,
+                9 * Game.DISP_H / 10 - Game.DISP_W / 15 / 2));
         helicopter = new Helicopter(helipad.getCenter());
         fires = new Fire[3];
         rands = new int[6];

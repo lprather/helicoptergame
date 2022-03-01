@@ -5,15 +5,12 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.Game;
 
-public class Helipad {
+public class Helipad extends Fixed{
 
-    private Point location;
-    private int size;
+    private final int size = Game.DISP_W / 15;
 
-    public Helipad() {
-        size = Game.DISP_W / 15;
-        location = new Point(Game.DISP_W / 2 - size,
-                9 * Game.DISP_H / 10 - size / 2);
+    public Helipad(Point inputLocation) {
+        super(inputLocation);
     }
 
     public void draw(Graphics g) {
