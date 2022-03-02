@@ -13,7 +13,8 @@ public class GameObject {
 
     }
 
-    public GameObject() {
-
+    public GameObject(Dimension inputDim, int inputColor) {
+        dim = inputDim;
+        color = inputColor;
     }
 }

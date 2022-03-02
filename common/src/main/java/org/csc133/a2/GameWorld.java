@@ -4,6 +4,7 @@ import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.Font;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fire;
 import org.csc133.a2.gameobjects.Helicopter;
@@ -53,7 +54,7 @@ public class GameWorld {
         fires[0] = new Fire(rands[0], rands[1]); //upper left
         fires[1] = new Fire(rands[2], rands[3]); //upper right
         fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
-        river = new River(new Point(0, (Game.DISP_H / 4)));
+        river = new River(new Point(0, (Game.DISP_H / 4)), new Dimension(100,100), 200);
 
     }
 
