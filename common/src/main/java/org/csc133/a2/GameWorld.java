@@ -7,6 +7,7 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fire;
+import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Helicopter;
 //import org.csc133.a2.gameobjects.Helipad;
 import org.csc133.a2.gameobjects.River;
@@ -16,6 +17,7 @@ import java.util.Random;
 public class GameWorld {
 
     private River river;
+    private GameObject[] gameObjects;
     /*private Helipad helipad;
     private Fire[] fires; //array holding fire objects
     private Helicopter helicopter;
@@ -55,6 +57,8 @@ public class GameWorld {
         fires[1] = new Fire(rands[2], rands[3]); //upper right
         fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
         river = new River(new Point(0, (Game.DISP_H / 4)), new Dimension(100,100), 200);
+        gameObjects = new GameObject[1];
+        gameObjects[0] = river;
 
     }
 
@@ -110,6 +114,10 @@ public class GameWorld {
 
     public void quit() {
         Display.getInstance().exitApplication();
+    }
+
+    public GameObject[] getGameObjectCollection(){
+        return gameObjects;
     }
 
     public void handleInputKey(int input) {

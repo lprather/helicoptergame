@@ -1,9 +1,11 @@
 package org.csc133.a2.gameobjects;
 
+import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
+import org.csc133.a2.interfaces.Drawable;
 
-public class GameObject {
+public class GameObject implements Drawable {
 
     private Point location;
     private Dimension dim;
@@ -16,5 +18,10 @@ public class GameObject {
     public GameObject(Dimension inputDim, int inputColor) {
         dim = inputDim;
         color = inputColor;
+    }
+
+    @Override
+    public void draw(Graphics g, Point containterOrigin) {
+
     }
 }
