@@ -7,7 +7,7 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fire;
 import org.csc133.a2.gameobjects.Helicopter;
-import org.csc133.a2.gameobjects.Helipad;
+//import org.csc133.a2.gameobjects.Helipad;
 import org.csc133.a2.gameobjects.River;
 
 import java.util.Random;
@@ -15,14 +15,14 @@ import java.util.Random;
 public class GameWorld {
 
     private River river;
-    private Helipad helipad;
+    /*private Helipad helipad;
     private Fire[] fires; //array holding fire objects
     private Helicopter helicopter;
     private Random rand;
     private int[] rands; //array holding integers for placement of fires
     private boolean gameIsOver;
     private int numFiresOut;
-    private boolean gameWon;
+    private boolean gameWon;*/
 
     public final int MAX_WATER = 1000;
 
@@ -31,10 +31,10 @@ public class GameWorld {
     }
 
     private void init() {
-        gameWon = false;
+        /*gameWon = false;
         numFiresOut = 0;
         gameIsOver = false;
-        river = new River(new Point(0, (Game.DISP_H / 4)));
+
         helipad = new Helipad(new Point(Game.DISP_W / 2 - Game.DISP_W / 15,
                 9 * Game.DISP_H / 10 - Game.DISP_W / 15 / 2));
         helicopter = new Helicopter(helipad.getCenter());
@@ -52,23 +52,25 @@ public class GameWorld {
         rands[5] = rand.nextInt(Game.DISP_H / 4) + Game.DISP_H / 2;
         fires[0] = new Fire(rands[0], rands[1]); //upper left
         fires[1] = new Fire(rands[2], rands[3]); //upper right
-        fires[2] = new Fire(rands[4], rands[5]); //lower middle
+        fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
+        river = new River(new Point(0, (Game.DISP_H / 4)));
+
     }
 
     void draw(Graphics g) {
         g.clearRect(0, 0, Game.DISP_W, Game.DISP_H);
         g.setFont(Font.createSystemFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN,
                 Font.SIZE_MEDIUM)); //setting font size for readability
-        river.draw(g);
-        for (Fire fire : fires) {
+        river.draw(g, river.getRiverLocation());
+        /*for (Fire fire : fires) {
             fire.draw(g);
         }
         helipad.draw(g);
-        helicopter.draw(g);
+        helicopter.draw(g);*/
     }
 
     void tick() {
-        helicopter.move();
+        /*helicopter.move();
         helicopter.loseFuel();
         if (rand.nextInt(40) == 0) {
             for (int i = 0; i < 3; i++) {
@@ -102,7 +104,7 @@ public class GameWorld {
             } else {
                 quit();
             }
-        }
+        }*/
     }
 
     public void quit() {
@@ -110,7 +112,7 @@ public class GameWorld {
     }
 
     public void handleInputKey(int input) {
-        if (input == -91) { //speed increase
+        /*if (input == -91) { //speed increase
             if (helicopter.canSpeedUp()) {
                 helicopter.updateCurrentSpeed(1);
             }
@@ -122,10 +124,10 @@ public class GameWorld {
             helicopter.updateHeading(-1);
         } else if (input == -94) { //turn left
             helicopter.updateHeading(1);
-        }
+        }*/
     }
 
-    public void fightFire() {
+    /*public void fightFire() {
         int amtWater = helicopter.getCurrentWater();
         for (Fire fire : fires) {
             if (fire.helicopterInRange(helicopter) && fire.getSize() > 0) {
@@ -143,6 +145,6 @@ public class GameWorld {
                 helicopter.updateWaterLevel(1);
             }
         }
-    }
+    }*/
 
 }

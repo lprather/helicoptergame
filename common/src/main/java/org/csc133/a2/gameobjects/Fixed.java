@@ -4,10 +4,14 @@ import com.codename1.ui.geom.Point;
 
 public class Fixed extends GameObject{
 
-    public final Point location;
+    public static final Point location;
 
     public Fixed(Point inputLocation){
         location = inputLocation;
+    }
+
+    public Point getLocation(){
+        return location;
     }
 
 }
