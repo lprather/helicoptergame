@@ -7,6 +7,9 @@ public class GlassCockpit extends Container {
 
     private GameWorld gw;
 
+    public GlassCockpit(GameWorld gw) {
+    }
+
     public void GlassCockpit(GameWorld inputgw){
         gw = inputgw;
     }

@@ -6,18 +6,21 @@ import com.codename1.ui.Font;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
+import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.gameobjects.Fire;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Helicopter;
 //import org.csc133.a2.gameobjects.Helipad;
 import org.csc133.a2.gameobjects.River;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GameWorld {
 
     private River river;
-    private GameObject[] gameObjects;
+    private ArrayList<GameObject> gameObjects;
+    private Dimension worldSize;
     /*private Helipad helipad;
     private Fire[] fires; //array holding fire objects
     private Helicopter helicopter;
@@ -34,6 +37,8 @@ public class GameWorld {
     }
 
     private void init() {
+
+        worldSize = new Dimension();
         /*gameWon = false;
         numFiresOut = 0;
         gameIsOver = false;
@@ -56,9 +61,12 @@ public class GameWorld {
         fires[0] = new Fire(rands[0], rands[1]); //upper left
         fires[1] = new Fire(rands[2], rands[3]); //upper right
         fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
-        river = new River(new Point(0, (Game.DISP_H / 4)), new Dimension(100,100), 200);
-        gameObjects = new GameObject[1];
-        gameObjects[0] = river;
+        river = new River(worldSize);
+        //gameObjects = new GameObject[1];
+        //gameObjects[0] = river;
+
+        gameObjects = new ArrayList<>();
+        gameObjects.add(river);
 
     }
 
@@ -116,7 +124,7 @@ public class GameWorld {
         Display.getInstance().exitApplication();
     }
 
-    public GameObject[] getGameObjectCollection(){
+    public ArrayList<GameObject> getGameObjectCollection(){
         return gameObjects;
     }
 
@@ -134,6 +142,10 @@ public class GameWorld {
         } else if (input == -94) { //turn left
             helicopter.updateHeading(1);
         }*/
+    }
+
+    public void setDimension(Dimension worldSize) {
+        this.worldSize = worldSize;
     }
 
     /*public void fightFire() {

@@ -5,10 +5,16 @@ import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.util.UITimer;
+import org.csc133.a2.views.ControlCluster;
+import org.csc133.a2.views.GlassCockpit;
+import org.csc133.a2.views.MapView;
 
 public class Game extends Form implements Runnable {
 
     private GameWorld gw;
+    MapView mapView;
+    GlassCockpit cockpitView;
+    ControlCluster controlView;
 
     public final static int DISP_W = Display.getInstance().getDisplayWidth();
     public final static int DISP_H = Display.getInstance().getDisplayHeight();
@@ -19,6 +25,10 @@ public class Game extends Form implements Runnable {
 
     public Game() {
         gw = new GameWorld();
+
+        mapView = new MapView(gw);
+        cockpitView = new GlassCockpit(gw);
+        controlView = new ControlCluster(gw);
 
         addKeyListener('Q', (evt) -> gw.quit());
         addKeyListener(-91, (evt) -> gw.handleInputKey(-91)); //up arrow
