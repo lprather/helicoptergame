@@ -1,7 +1,6 @@
 package org.csc133.a2.gameobjects;
 
 import com.codename1.ui.geom.Dimension;
-import com.codename1.ui.geom.Point;
 import com.codename1.ui.geom.Point2D;
 
 public class Fixed extends GameObject{

@@ -1,6 +1,5 @@
 package org.csc133.a2;
 
-import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
@@ -13,9 +12,9 @@ import org.csc133.a2.views.MapView;
 public class Game extends Form implements Runnable {
 
     private GameWorld gw;
-    MapView mapView;
-    GlassCockpit cockpitView;
-    ControlCluster controlView;
+    private MapView mapView;
+    private GlassCockpit cockpitView;
+    private ControlCluster controlView;
 
     public final static int DISP_W = Display.getInstance().getDisplayWidth();
     public final static int DISP_H = Display.getInstance().getDisplayHeight();
@@ -53,7 +52,7 @@ public class Game extends Form implements Runnable {
 
     public void paint(Graphics g) {
         super.paint(g);
-        gw.draw(g);
+        mapView.paint(g);
     }
 
     @Override

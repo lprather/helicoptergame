@@ -1,9 +1,6 @@
 package org.csc133.a2;
 
-import com.codename1.charts.util.ColorUtil;
 import com.codename1.system.Lifecycle;
-import com.codename1.ui.*;
-import com.codename1.ui.geom.Point;
 
 import java.util.Random;
 

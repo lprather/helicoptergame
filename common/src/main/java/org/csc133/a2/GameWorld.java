@@ -1,20 +1,13 @@
 package org.csc133.a2;
 
-import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.Font;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
-import com.codename1.ui.geom.Point;
-import com.codename1.ui.geom.Point2D;
-import org.csc133.a2.gameobjects.Fire;
 import org.csc133.a2.gameobjects.GameObject;
-import org.csc133.a2.gameobjects.Helicopter;
-//import org.csc133.a2.gameobjects.Helipad;
 import org.csc133.a2.gameobjects.River;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class GameWorld {
 
@@ -30,7 +23,7 @@ public class GameWorld {
     private int numFiresOut;
     private boolean gameWon;*/
 
-    public final int MAX_WATER = 1000;
+    //public final int MAX_WATER = 1000;
 
     public GameWorld() {
         init();
@@ -70,17 +63,17 @@ public class GameWorld {
 
     }
 
-    void draw(Graphics g) {
+    //void draw(Graphics g) {
         //g.clearRect(0, 0, Game.DISP_W, Game.DISP_H);
-        g.setFont(Font.createSystemFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN,
-                Font.SIZE_MEDIUM)); //setting font size for readability
-        river.draw(g, river.getRiverLocation());
+        //g.setFont(Font.createSystemFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN,
+                //Font.SIZE_MEDIUM)); //setting font size for readability
+        //river.draw(g, river.getRiverLocation());
         /*for (Fire fire : fires) {
             fire.draw(g);
         }
         helipad.draw(g);
         helicopter.draw(g);*/
-    }
+    //}
 
     void tick() {
         /*helicopter.move();
