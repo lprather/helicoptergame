@@ -4,6 +4,7 @@ import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.UITimer;
 import org.csc133.a2.views.ControlCluster;
 import org.csc133.a2.views.GlassCockpit;
@@ -30,6 +31,11 @@ public class Game extends Form implements Runnable {
         cockpitView = new GlassCockpit(gw);
         controlView = new ControlCluster(gw);
 
+        this.setLayout(new BorderLayout());
+        this.add(BorderLayout.NORTH, cockpitView);
+        this.add(BorderLayout.CENTER, mapView);
+        this.add(BorderLayout.SOUTH, controlView);
+
         addKeyListener('Q', (evt) -> gw.quit());
         addKeyListener(-91, (evt) -> gw.handleInputKey(-91)); //up arrow
         addKeyListener(-92, (evt) -> gw.handleInputKey(-92)); //down arrow
@@ -41,7 +47,7 @@ public class Game extends Form implements Runnable {
         UITimer timer = new UITimer(this);
         timer.schedule(100, true, this);
 
-        this.getAllStyles().setBgColor(ColorUtil.BLACK);
+        //this.getAllStyles().setBgColor(ColorUtil.BLACK);
         this.show();
     }
 

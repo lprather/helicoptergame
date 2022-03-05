@@ -71,7 +71,7 @@ public class GameWorld {
     }
 
     void draw(Graphics g) {
-        g.clearRect(0, 0, Game.DISP_W, Game.DISP_H);
+        //g.clearRect(0, 0, Game.DISP_W, Game.DISP_H);
         g.setFont(Font.createSystemFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN,
                 Font.SIZE_MEDIUM)); //setting font size for readability
         river.draw(g, river.getRiverLocation());

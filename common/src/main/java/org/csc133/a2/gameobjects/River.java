@@ -33,20 +33,19 @@ public class River extends Fixed implements Drawable {
     }*/
 
     //getter for top of river needed for helicopter drinking
-    public int getUpperRiverBound() {
-        return (int)location.getY();
-    }
+    //public int getUpperRiverBound() {
+        //return (int)location.getY();
+    //}
 
     //getter for bottom of river. needed for helicopter drinking
-    public int getLowerRiverBound() {
-        return (int)location.getY() + Game.DISP_H / 8;
-    }
+    //public int getLowerRiverBound() {
+        //return (int)location.getY() + Game.DISP_H / 8;
+    //}
 
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
 
-
-        g.drawRect((int)containerOrigin.getX(), (int)containerOrigin.getY(), Game.DISP_W - 5,
-                Game.DISP_H / 8, 5);
+        g.drawRect((int)containerOrigin.getX(), (int)containerOrigin.getY(),
+                Game.DISP_W, Game.DISP_H / 8, 5);
     }
 }
