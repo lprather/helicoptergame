@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Minor adjustments for clean code.">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="River displayed correctly from MapView with other views shown.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/AppMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/River.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Drawable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Drawable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/HornetsHfd-A2-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/HornetsHfd-A2-common-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/org/csc133/a2/AppMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/org/csc133/a2/AppMain.class" afterDir="false" />
@@ -863,7 +863,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646462722024</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="River displayed correctly from MapView with other views shown.">
+      <created>1646517435977</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1646517435977</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -899,6 +906,7 @@
     <MESSAGE value="Continued refactoring of River class and MapView as well as minor linked changes to GameWorld." />
     <MESSAGE value="Addition of form layout for GlassCockpit. Values for headers to be added later." />
     <MESSAGE value="Minor adjustments for clean code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor adjustments for clean code." />
+    <MESSAGE value="River displayed correctly from MapView with other views shown." />
+    <option name="LAST_COMMIT_MESSAGE" value="River displayed correctly from MapView with other views shown." />
   </component>
 </project>

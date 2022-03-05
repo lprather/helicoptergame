@@ -9,22 +9,15 @@ import org.csc133.a2.interfaces.Drawable;
 public class River extends Fixed implements Drawable {
 
     public River(Dimension worldSize) {
+        super(new Point2D(0, worldSize.getHeight()/3));
         this.worldSize = worldSize;
         this.color = ColorUtil.BLUE;
-        this.location = new Point2D(0, worldSize.getHeight()/3);
-        //this.dim = new Dimension(100, 100);
         this.dim = new Dimension(worldSize.getWidth(), worldSize.getHeight()/8);
     }
 
     public Point2D getRiverLocation() {
         return location;
     }
-
-    /*public void draw(Graphics g) {
-        g.setColor(ColorUtil.BLUE);
-        g.drawRect(location.getX(), location.getY(), Game.DISP_W,
-                Game.DISP_H / 8, 5);
-    }*/
 
     //getter for top of river needed for helicopter drinking
     //public int getUpperRiverBound() {
@@ -41,8 +34,6 @@ public class River extends Fixed implements Drawable {
 
         g.drawRect((int)location.getX(), (int)location.getY(),
                 dim.getWidth(),dim.getHeight(),5);
-                //this.dim.getWidth(), this.dim.getHeight() / 8, 5);
     }
-    //(int)containerOrigin.getX() +
-    //(int)containerOrigin.getY() +
+
 }

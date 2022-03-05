@@ -1,12 +1,10 @@
 package org.csc133.a2;
 
 import com.codename1.ui.Display;
-import com.codename1.ui.Font;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.River;
-import org.csc133.a2.views.MapView;
 
 import java.util.ArrayList;
 
@@ -26,13 +24,10 @@ public class GameWorld {
 
     //public final int MAX_WATER = 1000;
 
-    public GameWorld() {
-        //worldSize = new Dimension();
-    }
+    public GameWorld() {}
 
     public void init() {
 
-        //worldSize = new Dimension();
         /*gameWon = false;
         numFiresOut = 0;
         gameIsOver = false;
@@ -56,8 +51,6 @@ public class GameWorld {
         fires[1] = new Fire(rands[2], rands[3]); //upper right
         fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
         river = new River(worldSize);
-        //gameObjects = new GameObject[1];
-        //gameObjects[0] = river;
 
         gameObjects = new ArrayList<>();
         gameObjects.add(river);

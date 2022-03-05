@@ -1,5 +1,6 @@
 package org.csc133.a2;
 
+import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
