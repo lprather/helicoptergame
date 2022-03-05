@@ -27,7 +27,7 @@ public class GameObject implements Drawable {
     }
 
     @Override
-    public void draw(Graphics g, Point containterOrigin) {
+    public void draw(Graphics g, Point2D containterOrigin) {
 
     }
 }

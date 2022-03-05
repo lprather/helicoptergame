@@ -6,6 +6,7 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.River;
+import org.csc133.a2.views.MapView;
 
 import java.util.ArrayList;
 
@@ -26,12 +27,12 @@ public class GameWorld {
     //public final int MAX_WATER = 1000;
 
     public GameWorld() {
-        init();
+        //worldSize = new Dimension();
     }
 
-    private void init() {
+    public void init() {
 
-        worldSize = new Dimension();
+        //worldSize = new Dimension();
         /*gameWon = false;
         numFiresOut = 0;
         gameIsOver = false;
@@ -63,7 +64,7 @@ public class GameWorld {
 
     }
 
-    //void draw(Graphics g) {
+    void draw(Graphics g) {
         //g.clearRect(0, 0, Game.DISP_W, Game.DISP_H);
         //g.setFont(Font.createSystemFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN,
                 //Font.SIZE_MEDIUM)); //setting font size for readability
@@ -73,7 +74,7 @@ public class GameWorld {
         }
         helipad.draw(g);
         helicopter.draw(g);*/
-    //}
+    }
 
     void tick() {
         /*helicopter.move();

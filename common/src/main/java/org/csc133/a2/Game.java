@@ -52,7 +52,7 @@ public class Game extends Form implements Runnable {
 
     public void paint(Graphics g) {
         super.paint(g);
-        mapView.paint(g);
+        gw.draw(g);
     }
 
     @Override

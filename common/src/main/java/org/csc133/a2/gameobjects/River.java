@@ -11,7 +11,8 @@ public class River extends Fixed implements Drawable {
     public River(Dimension worldSize) {
         this.worldSize = worldSize;
         this.color = ColorUtil.BLUE;
-        this.location = new Point2D(0, worldSize.getHeight());
+        this.location = new Point2D(0, worldSize.getHeight()/3);
+        //this.dim = new Dimension(100, 100);
         this.dim = new Dimension(worldSize.getWidth(), worldSize.getHeight()/8);
     }
 
@@ -38,7 +39,10 @@ public class River extends Fixed implements Drawable {
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
 
-        g.drawRect((int)containerOrigin.getX(), (int)containerOrigin.getY(),
-                this.dim.getWidth(), this.dim.getHeight() / 8, 5);
+        g.drawRect((int)location.getX(), (int)location.getY(),
+                dim.getWidth(),dim.getHeight(),5);
+                //this.dim.getWidth(), this.dim.getHeight() / 8, 5);
     }
+    //(int)containerOrigin.getX() +
+    //(int)containerOrigin.getY() +
 }
