@@ -8,17 +8,18 @@ import org.csc133.a2.interfaces.Drawable;
 
 public class Building extends Fixed implements Drawable {
 
-    public Building(Dimension worldSize, Point2D inputLocation){
+    public Building(Dimension worldSize, Point2D inputLocation, Dimension inputDim){
         super(inputLocation);
         this.worldSize = worldSize;
         this.color = ColorUtil.rgb(255,0,0);
-        this.dim = new Dimension(100,100);
+        this.dim = inputDim;
     }
 
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
 
-        g.drawRect((int)this.location.getX(), (int)this.location.getY(), dim.getWidth(), dim.getHeight(),5);
+        g.drawRect((int)containerOrigin.getX()+(int)this.location.getX(), (int)containerOrigin.getY()+(int)this.location.getY(),
+                dim.getWidth(), dim.getHeight(),5);
     }
 
 }

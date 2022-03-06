@@ -8,11 +8,11 @@ import com.codename1.ui.geom.Point2D;
 public class Helipad extends Fixed{
 
     public Helipad(Dimension worldSize) {
-        super(new Point2D(worldSize.getWidth()/2-worldSize.getWidth()/20,
-                9*worldSize.getHeight()/10-worldSize.getHeight()/20/2));
+        super(new Point2D(worldSize.getWidth()/2-worldSize.getWidth()/15,
+                9*worldSize.getHeight()/10-worldSize.getHeight()/15/2));
         this.worldSize = worldSize;
         this.color = ColorUtil.GRAY;
-        this.dim = new Dimension(worldSize.getWidth()/20, worldSize.getWidth()/20);
+        this.dim = new Dimension(worldSize.getWidth()/15, worldSize.getWidth()/15);
     }
 
     //getter to be used for reference. returns center of helipad

@@ -15,6 +15,7 @@ public class GameWorld {
     private Dimension worldSize;
     private Helipad helipad;
     private BuildingGroup buildings;
+    private Building building1;
     /*private Fire[] fires; //array holding fire objects
     private Helicopter helicopter;
     private Random rand;
@@ -53,14 +54,20 @@ public class GameWorld {
         fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
-        //buildings.add(new Building(worldSize, new Point2D(0,0))); //above river
-        //buildings.add(new Building(worldSize, new Point2D(0,0))); //left
-        //buildings.add(new Building(worldSize, new Point2D(0,0))); //right
+
+        buildings = new BuildingGroup();
+        buildings.add(new Building(worldSize, new Point2D(worldSize.getWidth()/7,
+                worldSize.getHeight()/22), new Dimension(5*worldSize.getWidth()/7,
+                worldSize.getHeight()/9))); //above river
+        buildings.add(new Building(worldSize, new Point2D(worldSize.getWidth()/16, worldSize.getHeight()/2.25),
+                new Dimension(worldSize.getWidth()/10, (int)(worldSize.getHeight()/2.5)))); //left
+        buildings.add(new Building(worldSize, new Point2D(13*worldSize.getWidth()/16,worldSize.getHeight()/2.25),
+                new Dimension(worldSize.getWidth()/10, worldSize.getHeight()/3))); //right
 
         gameObjects = new ArrayList<>();
         gameObjects.add(river);
         gameObjects.add(helipad);
-        //gameObjects.add(buildings);
+        gameObjects.add(buildings);
 
     }
 

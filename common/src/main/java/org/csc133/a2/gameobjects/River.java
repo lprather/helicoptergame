@@ -9,7 +9,7 @@ import org.csc133.a2.interfaces.Drawable;
 public class River extends Fixed implements Drawable {
 
     public River(Dimension worldSize) {
-        super(new Point2D(0, worldSize.getHeight()/5));
+        super(new Point2D(0, worldSize.getHeight()/4));
         this.worldSize = worldSize;
         this.color = ColorUtil.BLUE;
         this.dim = new Dimension(worldSize.getWidth(), worldSize.getHeight()/8);
