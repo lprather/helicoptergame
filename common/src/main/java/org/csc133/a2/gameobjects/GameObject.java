@@ -13,7 +13,7 @@ public class GameObject implements Drawable {
     public int color;
     Dimension worldSize;
 
-    public GameObject(Point inputPoint, Dimension inputDim, int inputColor){
+    public GameObject(Point2D inputPoint, Dimension inputDim, int inputColor){
 
     }
 

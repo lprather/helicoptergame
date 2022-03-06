@@ -42,6 +42,7 @@ public class GameWorld {
 
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
+        helicopter = new Helicopter(worldSize, helipad.getCenter());
 
         building1 = new Building(worldSize,
                 new Point2D(worldSize.getWidth()/7, worldSize.getHeight()/22),
@@ -82,6 +83,7 @@ public class GameWorld {
         gameObjects.add(helipad);
         gameObjects.add(buildings);
         gameObjects.add(fires);
+        gameObjects.add(helicopter);
 
     }
 

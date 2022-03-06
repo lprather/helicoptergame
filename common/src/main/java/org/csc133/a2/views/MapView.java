@@ -14,6 +14,8 @@ public class MapView extends Container {
 
     public MapView(GameWorld gw) {
         this.gw = gw;
+        this.getStyle().setBgColor(ColorUtil.BLACK);
+        this.getStyle().setBgTransparency(255);
     }
 
     @Override
@@ -23,8 +25,6 @@ public class MapView extends Container {
     }
 
     public void paint(Graphics g){
-        g.setColor(ColorUtil.BLACK);
-        g.fillRect(0,0,this.getWidth(),this.getHeight());
         //draw all objects in the gameworld relative to this container object
         for (GameObject go: gw.getGameObjectCollection()){
             go.draw(g, new Point2D(this.getX(), this.getY()));

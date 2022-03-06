@@ -2,40 +2,54 @@ package org.csc133.a2.gameobjects;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
-import org.csc133.a2.Game;
+import com.codename1.ui.geom.Point2D;
+import org.csc133.a2.interfaces.Drawable;
 
-public class Helicopter {
+public class Helicopter extends Moveable implements Drawable {
 
-    private Point location;
     private double xChange;
     private double yChange;
     private int size;
     private int fuelLevel;
     private int waterLevel;
-    private int speed;
-    private int heading;
     private boolean noFuel;
     private boolean speedHasChanged;
 
     private final int MAX_SPEED = 10;
     private final int MAX_FUEL = 25000;
 
-    public Helicopter(Point helipadCenter) {
+    public Helicopter(Dimension worldSize, Point2D helicopterCenter) {
+        super();
+        this.color = ColorUtil.YELLOW;
+
+        size = Math.min(worldSize.getWidth(), worldSize.getHeight()) / 45;
+        this.worldSize = worldSize;
+        this.location = helicopterCenter;
+        this.location.setY(location.getY() + (int) (size / 1.75));
+        this.dim = new Dimension(size, size);
         speedHasChanged = false;
         fuelLevel = MAX_FUEL;
-        size = Game.getSmallDim() / 55;
-        location = helipadCenter;
-        location.setY(location.getY() + (int) (size / 1.75));
         xChange = updateXChange();
         yChange = updateXChange();
         waterLevel = 0;
-        speed = 0;
-        heading = 0;
     }
 
-    public void draw(Graphics g) {
-        g.setColor(ColorUtil.YELLOW);
+    public void draw(Graphics g, Point2D containerOrigin){
+        g.setColor(color);
+
+        g.drawLine((int)location.getX(), (int)location.getY(), (int)location.getX() +
+                updateXChange(), (int)location.getY() - updateYChange());
+        g.fillArc((int)location.getX() - (int) (dim.getWidth() / 1.75),
+                (int)location.getY() - (int) (dim.getHeight() / 1.75), dim.getWidth(), dim.getHeight(), 0, 360);
+        g.drawString("F : " + fuelLevel, (int)location.getX(), (int)location.getY() +
+                (int) (2.5 * size));
+        g.drawString("W : " + waterLevel, (int)location.getX(), (int)location.getY() +
+                (int) (3.5 * size));
+    }
+
+    /*public void draw(Graphics g) {
         g.drawLine(location.getX(), location.getY(), location.getX() +
                 updateXChange(), location.getY() - updateYChange());
         g.fillArc(location.getX() - (int) (size / 1.75),
@@ -121,20 +135,20 @@ public class Helicopter {
                 heading -= 360;
             }
         }
-    }
+    }*/
 
     //setter for x value used to put tail of helicopter in direction of heading
     private int updateXChange() {
-        xChange = 2 * size * Math.sin(heading * 0.01745329);
+        xChange = 2 * size * Math.sin(this.getHeading() * 0.01745329);
         return (int) Math.round(xChange);
     }
 
     //setter for y value used to put tail of helicopter in direction of heading
     private int updateYChange() {
-        yChange = 2 * size * Math.cos(heading * 0.01745329);
+        yChange = 2 * size * Math.cos(this.getHeading() * 0.01745329);
         return (int) Math.round(yChange);
     }
-
+/*
     //getter for fuel level. used when determining if the game is over
     public int getFuelLevel() {
         return fuelLevel;
@@ -144,6 +158,6 @@ public class Helicopter {
     //are not triggered before the player has moved
     public boolean hasMoved() {
         return speedHasChanged;
-    }
+    }*/
 
 }

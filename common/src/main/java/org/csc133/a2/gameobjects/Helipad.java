@@ -33,4 +33,9 @@ public class Helipad extends Fixed{
                 dim.getHeight() - 20, 0, 360); //inner circle
     }
 
+    public Point2D getCenter() {
+        Point2D center = new Point2D((location.getX() + dim.getWidth() / 2),
+                (location.getY() + dim.getHeight() / 2));
+        return center;
+    }
 }
