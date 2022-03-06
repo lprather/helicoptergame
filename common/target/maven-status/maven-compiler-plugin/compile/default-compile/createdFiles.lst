@@ -1,4 +1,3 @@
-org\csc133\a2\gameobjects\BuildingGroup.class
 org\csc133\a2\views\GlassCockpit.class
 org\csc133\a2\gameobjects\GameObjectCollection$GameObjectIterator.class
 org\csc133\a2\gameobjects\GameObject.class
@@ -8,6 +7,7 @@ org\csc133\a2\gameobjects\Building.class
 org\csc133\a2\GameWorld.class
 org\csc133\a2\gameobjects\Moveable.class
 org\csc133\a2\AppMain.class
+org\csc133\a2\gameobjects\Group.class
 org\csc133\a2\views\MapView.class
 org\csc133\a2\gameobjects\Fixed.class
 org\csc133\a2\gameobjects\Fire.class

@@ -14,8 +14,8 @@ public class GameWorld {
     private ArrayList<GameObject> gameObjects;
     private Dimension worldSize;
     private Helipad helipad;
-    private BuildingGroup buildings;
-    private Building building1;
+    private Group buildings;
+    private Group fires;
     /*private Helicopter helicopter;
     private boolean gameIsOver;
     private int numFiresOut;
@@ -37,7 +37,7 @@ public class GameWorld {
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
 
-        buildings = new BuildingGroup();
+        buildings = new Group();
         buildings.add(new Building(worldSize,
                 new Point2D(worldSize.getWidth()/7, worldSize.getHeight()/22),
                 new Dimension(5*worldSize.getWidth()/7,
@@ -52,10 +52,14 @@ public class GameWorld {
                 new Dimension(worldSize.getWidth()/10,
                         worldSize.getHeight()/3))); //right
 
+        fires = new Group();
+        fires.add(new Fire(new Point2D(400,400), new Dimension(100,100)));
+
         gameObjects = new ArrayList<>();
         gameObjects.add(river);
         gameObjects.add(helipad);
         gameObjects.add(buildings);
+        gameObjects.add(fires);
 
     }
 

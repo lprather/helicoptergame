@@ -2,14 +2,32 @@ package org.csc133.a2.gameobjects;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
-import com.codename1.ui.geom.Point;
-import org.csc133.a2.Game;
+import com.codename1.ui.geom.Dimension;
+import com.codename1.ui.geom.Point2D;
+import org.csc133.a2.interfaces.Drawable;
 
-import java.util.Random;
+public class Fire extends Fixed implements Drawable {
 
-public class Fire {
+    private Point2D drawStart;
 
-    private Point center;
+    public Fire(Point2D buildingLocation, Dimension buildingDim){
+        super(buildingLocation);
+        this.color = ColorUtil.MAGENTA;
+        this.drawStart = new Point2D(600,600);
+        this.dim = buildingDim;
+    }
+
+    public void draw(Graphics g, Point2D containerOrigin) {
+        g.setColor(color);
+
+        if (dim.getWidth() > 0) {
+            g.fillArc((int)drawStart.getX(), (int)drawStart.getY(), dim.getWidth(), dim.getHeight(), 0, 360);
+            g.drawString(" " + dim.getWidth() + " ", (int)location.getX() + dim.getWidth() / 2,
+                    (int)location.getY() + dim.getHeight() / 2);
+        }
+    }
+
+    /*private Point center;
     private Point drawStart;
     private int size;
     private Random rand = new Random();
@@ -76,6 +94,6 @@ public class Fire {
     //getter for x coordinate. used for knowing if fire is on screen
     public int getXCoord() {
         return center.getX();
-    }
+    }*/
 
 }
