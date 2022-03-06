@@ -17,7 +17,7 @@ public class Fire extends Fixed implements Drawable {
     public Fire(Point2D buildingLocation, Dimension buildingDim, Random rand){
         super(new Point2D(buildingLocation.getX()+rand.nextInt(
                         3*buildingDim.getWidth()/4)+buildingDim.getWidth()/8,
-                1.5*buildingLocation.getY()+rand.nextInt(
+                buildingLocation.getY()+rand.nextInt(
                         3*buildingDim.getHeight()/4)+buildingDim.getHeight()/8));
         this.color = ColorUtil.MAGENTA;
 
@@ -37,9 +37,9 @@ public class Fire extends Fixed implements Drawable {
         updateDrawStart();
 
         if (dim.getWidth() > 0) {
-            g.fillArc((int)drawStart.getX(), (int)drawStart.getY(), dim.getWidth(), dim.getHeight(), 0, 360);
-            g.drawString(" " + dim.getWidth() + " ", (int)location.getX() + dim.getWidth() / 2,
-                    (int)location.getY() + dim.getHeight() / 2);
+            g.fillArc((int)containerOrigin.getX()+(int)drawStart.getX(), (int)containerOrigin.getY()+(int)drawStart.getY(), dim.getWidth(), dim.getHeight(), 0, 360);
+            g.drawString(" " + dim.getWidth() + " ", (int)containerOrigin.getX()+(int)location.getX() + dim.getWidth() / 2,
+                    (int)containerOrigin.getY()+(int)location.getY() + dim.getHeight() / 2);
         }
     }
 
