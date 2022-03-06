@@ -9,7 +9,7 @@ import org.csc133.a2.interfaces.Drawable;
 public class River extends Fixed implements Drawable {
 
     public River(Dimension worldSize) {
-        super(new Point2D(0, worldSize.getHeight()/3));
+        super(new Point2D(0, worldSize.getHeight()/5));
         this.worldSize = worldSize;
         this.color = ColorUtil.BLUE;
         this.dim = new Dimension(worldSize.getWidth(), worldSize.getHeight()/8);
@@ -32,7 +32,7 @@ public class River extends Fixed implements Drawable {
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
 
-        g.drawRect((int)location.getX(), (int)location.getY(),
+        g.drawRect((int)containerOrigin.getX()+(int)this.location.getX(), (int)containerOrigin.getY()+(int)this.location.getY(),
                 dim.getWidth(),dim.getHeight(),5);
     }
 

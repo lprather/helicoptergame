@@ -4,7 +4,7 @@ import com.codename1.ui.geom.Point2D;
 
 public class Fixed extends GameObject{
 
-    public static Point2D location; //should be final
+    //public static Point2D location; //should be final
 
     public Fixed(Point2D inputLocation) {
         location = inputLocation;

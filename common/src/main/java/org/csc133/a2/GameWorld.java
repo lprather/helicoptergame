@@ -4,6 +4,7 @@ import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import org.csc133.a2.gameobjects.GameObject;
+import org.csc133.a2.gameobjects.Helipad;
 import org.csc133.a2.gameobjects.River;
 
 import java.util.ArrayList;
@@ -13,8 +14,8 @@ public class GameWorld {
     private River river;
     private ArrayList<GameObject> gameObjects;
     private Dimension worldSize;
-    /*private Helipad helipad;
-    private Fire[] fires; //array holding fire objects
+    private Helipad helipad;
+    /*private Fire[] fires; //array holding fire objects
     private Helicopter helicopter;
     private Random rand;
     private int[] rands; //array holding integers for placement of fires
@@ -51,9 +52,11 @@ public class GameWorld {
         fires[1] = new Fire(rands[2], rands[3]); //upper right
         fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
         river = new River(worldSize);
+        helipad = new Helipad(worldSize);
 
         gameObjects = new ArrayList<>();
         gameObjects.add(river);
+        gameObjects.add(helipad);
 
     }
 
@@ -133,6 +136,10 @@ public class GameWorld {
 
     public void setDimension(Dimension worldSize) {
         this.worldSize = worldSize;
+    }
+
+    public Dimension getDimension() {
+        return worldSize;
     }
 
     /*public void fightFire() {

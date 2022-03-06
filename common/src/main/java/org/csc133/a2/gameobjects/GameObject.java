@@ -8,7 +8,7 @@ import org.csc133.a2.interfaces.Drawable;
 
 public class GameObject implements Drawable {
 
-    private Point2D location;
+    public Point2D location;
     public Dimension dim;
     public int color;
     Dimension worldSize;
@@ -27,7 +27,7 @@ public class GameObject implements Drawable {
     }
 
     @Override
-    public void draw(Graphics g, Point2D containterOrigin) {
+    public void draw(Graphics g, Point2D containerOrigin) {
 
     }
 }
