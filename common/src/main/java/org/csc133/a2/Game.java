@@ -1,6 +1,5 @@
 package org.csc133.a2;
 
-import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.layouts.BorderLayout;
@@ -16,12 +15,12 @@ public class Game extends Form implements Runnable {
     private GlassCockpit cockpitView;
     private ControlCluster controlView;
 
-    public final static int DISP_W = Display.getInstance().getDisplayWidth();
-    public final static int DISP_H = Display.getInstance().getDisplayHeight();
+    //public final static int DISP_W = Display.getInstance().getDisplayWidth();
+    //public final static int DISP_H = Display.getInstance().getDisplayHeight();
 
-    public static int getSmallDim() {
-        return Math.min(DISP_W, DISP_H);
-    }
+    //public static int getSmallDim() {
+        //return Math.min(DISP_W, DISP_H);
+    //}
 
     public Game() {
         gw = new GameWorld();

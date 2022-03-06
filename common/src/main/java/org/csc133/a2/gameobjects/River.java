@@ -12,7 +12,8 @@ public class River extends Fixed implements Drawable {
         super(new Point2D(0, worldSize.getHeight()/4));
         this.worldSize = worldSize;
         this.color = ColorUtil.BLUE;
-        this.dim = new Dimension(worldSize.getWidth(), worldSize.getHeight()/8);
+        this.dim = new Dimension(worldSize.getWidth(),
+                worldSize.getHeight()/8);
     }
 
     public Point2D getRiverLocation() {

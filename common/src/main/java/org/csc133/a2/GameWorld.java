@@ -21,12 +21,12 @@ public class GameWorld {
     private Group buildings;
     private Group fires;
     private Random rand;
-    /*private Helicopter helicopter;
+    private Helicopter helicopter;
     private boolean gameIsOver;
     private int numFiresOut;
-    private boolean gameWon;*/
+    private boolean gameWon;
 
-    //public final int MAX_WATER = 1000;
+    public final int MAX_WATER = 1000;
 
     public GameWorld() {}
 
@@ -36,8 +36,7 @@ public class GameWorld {
         numFiresOut = 0;
         gameIsOver = false;
 
-        helicopter = new Helicopter(helipad.getCenter());
-        fires = new Fire[3];;*/
+        helicopter = new Helicopter(helipad.getCenter());*/
 
         rand = new Random();
 
@@ -49,7 +48,8 @@ public class GameWorld {
                 new Dimension(5*worldSize.getWidth()/7,
                         worldSize.getHeight()/9)); //above river
         building2 = new Building(worldSize,
-                new Point2D(worldSize.getWidth()/16, worldSize.getHeight()/2.25),
+                new Point2D(worldSize.getWidth()/16,
+                        worldSize.getHeight()/2.25),
                 new Dimension(worldSize.getWidth()/10,
                         (int)(worldSize.getHeight()/2.5))); //left
         building3 = new Building(worldSize,
@@ -65,13 +65,16 @@ public class GameWorld {
 
         fires = new Group();
         for (int i = rand.nextInt(2); i <= 2; i++){
-            fires.add(new Fire(building1.getLocation(), building1.getDimension(), rand));
+            fires.add(new Fire(building1.getLocation(),
+                    building1.getDimension(), rand));
         }
         for (int i = rand.nextInt(2); i <= 2; i++){
-            fires.add(new Fire(building2.getLocation(), building2.getDimension(), rand));
+            fires.add(new Fire(building2.getLocation(),
+                    building2.getDimension(), rand));
         }
         for (int i = rand.nextInt(2); i <= 2; i++){
-            fires.add(new Fire(building3.getLocation(), building3.getDimension(), rand));
+            fires.add(new Fire(building3.getLocation(),
+                    building3.getDimension(), rand));
         }
 
         gameObjects = new ArrayList<>();
@@ -82,17 +85,7 @@ public class GameWorld {
 
     }
 
-    void draw(Graphics g) {
-        //g.clearRect(0, 0, Game.DISP_W, Game.DISP_H);
-        //g.setFont(Font.createSystemFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN,
-                //Font.SIZE_MEDIUM)); //setting font size for readability
-        //river.draw(g, river.getRiverLocation());
-        /*for (Fire fire : fires) {
-            fire.draw(g);
-        }
-        helipad.draw(g);
-        helicopter.draw(g);*/
-    }
+    void draw(Graphics g) {}
 
     void tick() {
         /*helicopter.move();
@@ -158,10 +151,6 @@ public class GameWorld {
 
     public void setDimension(Dimension worldSize) {
         this.worldSize = worldSize;
-    }
-
-    public Dimension getDimension() {
-        return worldSize;
     }
 
     /*public void fightFire() {
