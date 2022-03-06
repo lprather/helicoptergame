@@ -3,9 +3,8 @@ package org.csc133.a2;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
-import org.csc133.a2.gameobjects.GameObject;
-import org.csc133.a2.gameobjects.Helipad;
-import org.csc133.a2.gameobjects.River;
+import com.codename1.ui.geom.Point2D;
+import org.csc133.a2.gameobjects.*;
 
 import java.util.ArrayList;
 
@@ -15,6 +14,7 @@ public class GameWorld {
     private ArrayList<GameObject> gameObjects;
     private Dimension worldSize;
     private Helipad helipad;
+    private BuildingGroup buildings;
     /*private Fire[] fires; //array holding fire objects
     private Helicopter helicopter;
     private Random rand;
@@ -53,10 +53,14 @@ public class GameWorld {
         fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
+        //buildings.add(new Building(worldSize, new Point2D(0,0))); //above river
+        //buildings.add(new Building(worldSize, new Point2D(0,0))); //left
+        //buildings.add(new Building(worldSize, new Point2D(0,0))); //right
 
         gameObjects = new ArrayList<>();
         gameObjects.add(river);
         gameObjects.add(helipad);
+        //gameObjects.add(buildings);
 
     }
 
