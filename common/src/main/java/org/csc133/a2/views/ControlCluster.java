@@ -1,8 +1,10 @@
 package org.csc133.a2.views;
 
+import com.codename1.ui.Button;
 import com.codename1.ui.Container;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.GridLayout;
-import org.csc133.a2.GameWorld;;
+import org.csc133.a2.GameWorld;
 
 public class ControlCluster extends Container {
 
@@ -13,9 +15,9 @@ public class ControlCluster extends Container {
 
         this.setLayout(new GridLayout(1,5));
         this.add("PLACEHOLDER 1");
-        this.add("PLACEHOLDER 2");
+        this.add("");
         this.add("PLACEHOLDER 3");
-        this.add("PLACEHOLDER 4");
+        this.add("");
         this.add("PLACEHOLDER 5");
 
     }

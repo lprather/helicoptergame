@@ -1,6 +1,5 @@
 package org.csc133.a2;
 
-import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
@@ -47,7 +46,6 @@ public class Game extends Form implements Runnable {
         UITimer timer = new UITimer(this);
         timer.schedule(100, true, this);
 
-        //this.getAllStyles().setBgColor(ColorUtil.BLACK);
         this.show();
     }
 

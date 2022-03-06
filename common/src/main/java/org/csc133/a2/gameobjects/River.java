@@ -32,7 +32,8 @@ public class River extends Fixed implements Drawable {
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
 
-        g.drawRect((int)containerOrigin.getX()+(int)this.location.getX(), (int)containerOrigin.getY()+(int)this.location.getY(),
+        g.drawRect((int)containerOrigin.getX()+(int)this.location.getX(),
+                (int)containerOrigin.getY()+(int)this.location.getY(),
                 dim.getWidth(),dim.getHeight(),5);
     }
 

@@ -16,10 +16,7 @@ public class GameWorld {
     private Helipad helipad;
     private BuildingGroup buildings;
     private Building building1;
-    /*private Fire[] fires; //array holding fire objects
-    private Helicopter helicopter;
-    private Random rand;
-    private int[] rands; //array holding integers for placement of fires
+    /*private Helicopter helicopter;
     private boolean gameIsOver;
     private int numFiresOut;
     private boolean gameWon;*/
@@ -34,35 +31,26 @@ public class GameWorld {
         numFiresOut = 0;
         gameIsOver = false;
 
-        helipad = new Helipad(new Point(Game.DISP_W / 2 - Game.DISP_W / 15,
-                9 * Game.DISP_H / 10 - Game.DISP_W / 15 / 2));
         helicopter = new Helicopter(helipad.getCenter());
-        fires = new Fire[3];
-        rands = new int[6];
-        rand = new Random();
-        //placing fires in location ranges
-        rands[0] = rand.nextInt(Game.DISP_W / 5) + Game.DISP_W / 6;
-        rands[1] = rand.nextInt(Game.DISP_H / 4 - Game.DISP_H / 10) +
-                Game.DISP_H / 10;
-        rands[2] = rand.nextInt(Game.DISP_W / 5) + Game.DISP_W / 2;
-        rands[3] = rand.nextInt(Game.DISP_H / 4 - Game.DISP_W / 10) +
-                Game.DISP_H / 10;
-        rands[4] = rand.nextInt(Game.DISP_W / 8) + Game.DISP_W / 2;
-        rands[5] = rand.nextInt(Game.DISP_H / 4) + Game.DISP_H / 2;
-        fires[0] = new Fire(rands[0], rands[1]); //upper left
-        fires[1] = new Fire(rands[2], rands[3]); //upper right
-        fires[2] = new Fire(rands[4], rands[5]); //lower middle*/
+        fires = new Fire[3];;*/
+
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
 
         buildings = new BuildingGroup();
-        buildings.add(new Building(worldSize, new Point2D(worldSize.getWidth()/7,
-                worldSize.getHeight()/22), new Dimension(5*worldSize.getWidth()/7,
+        buildings.add(new Building(worldSize,
+                new Point2D(worldSize.getWidth()/7, worldSize.getHeight()/22),
+                new Dimension(5*worldSize.getWidth()/7,
                 worldSize.getHeight()/9))); //above river
-        buildings.add(new Building(worldSize, new Point2D(worldSize.getWidth()/16, worldSize.getHeight()/2.25),
-                new Dimension(worldSize.getWidth()/10, (int)(worldSize.getHeight()/2.5)))); //left
-        buildings.add(new Building(worldSize, new Point2D(13*worldSize.getWidth()/16,worldSize.getHeight()/2.25),
-                new Dimension(worldSize.getWidth()/10, worldSize.getHeight()/3))); //right
+        buildings.add(new Building(worldSize,
+                new Point2D(worldSize.getWidth()/16, worldSize.getHeight()/2.25),
+                new Dimension(worldSize.getWidth()/10,
+                        (int)(worldSize.getHeight()/2.5)))); //left
+        buildings.add(new Building(worldSize,
+                new Point2D(13*worldSize.getWidth()/16,
+                        worldSize.getHeight()/2.25),
+                new Dimension(worldSize.getWidth()/10,
+                        worldSize.getHeight()/3))); //right
 
         gameObjects = new ArrayList<>();
         gameObjects.add(river);

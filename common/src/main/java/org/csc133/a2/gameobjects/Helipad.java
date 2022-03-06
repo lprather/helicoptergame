@@ -12,7 +12,8 @@ public class Helipad extends Fixed{
                 9*worldSize.getHeight()/10-worldSize.getHeight()/15/2));
         this.worldSize = worldSize;
         this.color = ColorUtil.GRAY;
-        this.dim = new Dimension(worldSize.getWidth()/15, worldSize.getWidth()/15);
+        this.dim = new Dimension(worldSize.getWidth()/15,
+                worldSize.getWidth()/15);
     }
 
     //getter to be used for reference. returns center of helipad
@@ -25,8 +26,10 @@ public class Helipad extends Fixed{
     public void draw(Graphics g, Point2D containerOrigin){
         g.setColor(color);
 
-        g.drawRect((int)this.location.getX(), (int)this.location.getY(), dim.getWidth(), dim.getHeight(), 5); //square
-        g.drawArc((int)this.location.getX() + 10, (int)this.location.getY() + 10, dim.getWidth() - 20,
+        g.drawRect((int)this.location.getX(), (int)this.location.getY(),
+                dim.getWidth(), dim.getHeight(), 5); //square
+        g.drawArc((int)this.location.getX() + 10,
+                (int)this.location.getY() + 10, dim.getWidth() - 20,
                 dim.getHeight() - 20, 0, 360); //inner circle
     }
 
