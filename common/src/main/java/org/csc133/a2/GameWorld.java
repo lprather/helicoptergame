@@ -7,6 +7,7 @@ import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.gameobjects.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameWorld {
 
@@ -14,8 +15,12 @@ public class GameWorld {
     private ArrayList<GameObject> gameObjects;
     private Dimension worldSize;
     private Helipad helipad;
+    private Building building1;
+    private Building building2;
+    private Building building3;
     private Group buildings;
     private Group fires;
+    private Random rand;
     /*private Helicopter helicopter;
     private boolean gameIsOver;
     private int numFiresOut;
@@ -34,26 +39,40 @@ public class GameWorld {
         helicopter = new Helicopter(helipad.getCenter());
         fires = new Fire[3];;*/
 
+        rand = new Random();
+
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
 
-        buildings = new Group();
-        buildings.add(new Building(worldSize,
+        building1 = new Building(worldSize,
                 new Point2D(worldSize.getWidth()/7, worldSize.getHeight()/22),
                 new Dimension(5*worldSize.getWidth()/7,
-                worldSize.getHeight()/9))); //above river
-        buildings.add(new Building(worldSize,
+                        worldSize.getHeight()/9)); //above river
+        building2 = new Building(worldSize,
                 new Point2D(worldSize.getWidth()/16, worldSize.getHeight()/2.25),
                 new Dimension(worldSize.getWidth()/10,
-                        (int)(worldSize.getHeight()/2.5)))); //left
-        buildings.add(new Building(worldSize,
+                        (int)(worldSize.getHeight()/2.5))); //left
+        building3 = new Building(worldSize,
                 new Point2D(13*worldSize.getWidth()/16,
                         worldSize.getHeight()/2.25),
                 new Dimension(worldSize.getWidth()/10,
-                        worldSize.getHeight()/3))); //right
+                        worldSize.getHeight()/3)); //right
+
+        buildings = new Group();
+        buildings.add(building1);
+        buildings.add(building2);
+        buildings.add(building3);
 
         fires = new Group();
-        fires.add(new Fire(new Point2D(400,400), new Dimension(100,100)));
+        for (int i = rand.nextInt(2); i <= 2; i++){
+            fires.add(new Fire(building1.getLocation(), building1.getDimension(), rand));
+        }
+        for (int i = rand.nextInt(2); i <= 2; i++){
+            fires.add(new Fire(building2.getLocation(), building2.getDimension(), rand));
+        }
+        for (int i = rand.nextInt(2); i <= 2; i++){
+            fires.add(new Fire(building3.getLocation(), building3.getDimension(), rand));
+        }
 
         gameObjects = new ArrayList<>();
         gameObjects.add(river);

@@ -24,4 +24,11 @@ public class Building extends Fixed implements Drawable {
                 dim.getWidth(), dim.getHeight(),5);
     }
 
+    public Dimension getDimension() {
+        return this.dim;
+    }
+
+    public Point2D getLocation() {
+        return this.location;
+    }
 }

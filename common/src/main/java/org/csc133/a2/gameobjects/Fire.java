@@ -6,19 +6,35 @@ import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.interfaces.Drawable;
 
+import java.util.Random;
+
 public class Fire extends Fixed implements Drawable {
 
     private Point2D drawStart;
+    private int smallerDimOfBuilding;
+    int size;
 
-    public Fire(Point2D buildingLocation, Dimension buildingDim){
-        super(buildingLocation);
+    public Fire(Point2D buildingLocation, Dimension buildingDim, Random rand){
+        super(new Point2D(buildingLocation.getX()+rand.nextInt(
+                        3*buildingDim.getWidth()/4)+buildingDim.getWidth()/8,
+                1.5*buildingLocation.getY()+rand.nextInt(
+                        3*buildingDim.getHeight()/4)+buildingDim.getHeight()/8));
         this.color = ColorUtil.MAGENTA;
-        this.drawStart = new Point2D(600,600);
-        this.dim = buildingDim;
+
+        this.smallerDimOfBuilding = Math.min(
+                buildingDim.getWidth(), buildingDim.getHeight());
+
+        size = rand.nextInt(smallerDimOfBuilding/6) + smallerDimOfBuilding/4;
+
+        this.dim = new Dimension(size, size);
+        this.drawStart = new Point2D(0,0);
+        updateDrawStart();
     }
 
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
+
+        updateDrawStart();
 
         if (dim.getWidth() > 0) {
             g.fillArc((int)drawStart.getX(), (int)drawStart.getY(), dim.getWidth(), dim.getHeight(), 0, 360);
@@ -47,15 +63,15 @@ public class Fire extends Fixed implements Drawable {
             g.drawString(" " + size + " ", center.getX() + size / 2,
                     center.getY() + size / 2);
         }
-    }
+    }*/
 
     //method to change where the arc representing fire should begin being drawn
     private void updateDrawStart() {
-        drawStart.setX(center.getX() - size / 2);
-        drawStart.setY(center.getY() - size / 2);
+        drawStart.setX((int)location.getX() - dim.getWidth() / 2);
+        drawStart.setY((int)location.getY() - dim.getHeight() / 2);
     }
 
-    public int grow() {
+    /*public int grow() {
         if (size > 0) {
             size += rand.nextInt(5) + 5;
             return 0;
