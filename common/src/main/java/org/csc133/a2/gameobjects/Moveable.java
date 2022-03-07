@@ -1,8 +1,5 @@
 package org.csc133.a2.gameobjects;
 
-import com.codename1.ui.geom.Dimension;
-import com.codename1.ui.geom.Point2D;
-
 public class Moveable extends GameObject{
 
     private int heading;
@@ -25,4 +22,11 @@ public class Moveable extends GameObject{
         return speed;
     }
 
+    protected void setSpeed(int input) {
+        speed += input;
+    }
+
+    public void updateHeading(int input){
+        heading += input;
+    }
 }

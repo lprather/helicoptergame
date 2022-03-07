@@ -16,13 +16,6 @@ public class Helipad extends Fixed{
                 worldSize.getWidth()/15);
     }
 
-    //getter to be used for reference. returns center of helipad
-    /*public Point getCenter() {
-        Point center = new Point((location.getX() + size / 2),
-                (location.getY() + size / 2));
-        return center;
-    }*/
-
     public void draw(Graphics g, Point2D containerOrigin){
         g.setColor(color);
 
@@ -37,5 +30,9 @@ public class Helipad extends Fixed{
         Point2D center = new Point2D((location.getX() + dim.getWidth() / 2),
                 (location.getY() + dim.getHeight() / 2));
         return center;
+    }
+
+    public Dimension getDim() {
+        return dim;
     }
 }

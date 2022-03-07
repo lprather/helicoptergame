@@ -16,19 +16,15 @@ public class River extends Fixed implements Drawable {
                 worldSize.getHeight()/8);
     }
 
-    public Point2D getRiverLocation() {
-        return location;
+    //getter for top of river needed for helicopter drinking
+    public int getUpperRiverBound() {
+        return (int)location.getY() + dim.getHeight();
     }
 
-    //getter for top of river needed for helicopter drinking
-    //public int getUpperRiverBound() {
-        //return (int)location.getY();
-    //}
-
     //getter for bottom of river. needed for helicopter drinking
-    //public int getLowerRiverBound() {
-        //return (int)location.getY() + Game.DISP_H / 8;
-    //}
+    public int getLowerRiverBound() {
+        return (int)location.getY() + 2*dim.getHeight();
+    }
 
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);

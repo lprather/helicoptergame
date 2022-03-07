@@ -15,13 +15,6 @@ public class Game extends Form implements Runnable {
     private GlassCockpit cockpitView;
     private ControlCluster controlView;
 
-    //public final static int DISP_W = Display.getInstance().getDisplayWidth();
-    //public final static int DISP_H = Display.getInstance().getDisplayHeight();
-
-    //public static int getSmallDim() {
-        //return Math.min(DISP_W, DISP_H);
-    //}
-
     public Game() {
         gw = new GameWorld();
 
@@ -39,8 +32,8 @@ public class Game extends Form implements Runnable {
         addKeyListener(-92, (evt) -> gw.handleInputKey(-92)); //down arrow
         addKeyListener(-93, (evt) -> gw.handleInputKey(-93)); //left arrow
         addKeyListener(-94, (evt) -> gw.handleInputKey(-94)); //right arrow
-        //addKeyListener('f', (evt) -> gw.fightFire());
-        //addKeyListener('d', (evt) -> gw.drink());
+        addKeyListener('f', (evt) -> gw.fightFire());
+        addKeyListener('d', (evt) -> gw.drink());
 
         UITimer timer = new UITimer(this);
         timer.schedule(100, true, this);

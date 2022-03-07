@@ -1,5 +1,6 @@
 package org.csc133.a2;
 
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
@@ -32,11 +33,9 @@ public class GameWorld {
 
     public void init() {
 
-        /*gameWon = false;
+        gameWon = false;
         numFiresOut = 0;
         gameIsOver = false;
-
-        helicopter = new Helicopter(helipad.getCenter());*/
 
         rand = new Random();
 
@@ -90,19 +89,19 @@ public class GameWorld {
     void draw(Graphics g) {}
 
     void tick() {
-        /*helicopter.move();
+        helicopter.move();
         helicopter.loseFuel();
         if (rand.nextInt(40) == 0) {
             for (int i = 0; i < 3; i++) {
                 //if the fire size is not larger than 0
                 //set it off-screen and tell game it's out
-                if (fires[i].grow() == -1 && fires[i].getXCoord() >= 0) {
+                /*if (fires[i].grow() == -1 && fires[i].getXCoord() >= 0) {
                     fires[i] = new Fire(-1000, -1000);
                     numFiresOut++;
-                }
+                }*/
             }
         }
-        if (helicopter.hasLanded(helipad.getCenter()) && helicopter.hasMoved()
+        if (helicopter.hasLanded(helipad.getCenter(), helipad) && helicopter.hasMoved()
                 && numFiresOut == 3) {
             gameIsOver = true;
             gameWon = true;
@@ -124,7 +123,7 @@ public class GameWorld {
             } else {
                 quit();
             }
-        }*/
+        }
     }
 
     public void quit() {
@@ -136,7 +135,7 @@ public class GameWorld {
     }
 
     public void handleInputKey(int input) {
-        /*if (input == -91) { //speed increase
+        if (input == -91) { //speed increase
             if (helicopter.canSpeedUp()) {
                 helicopter.updateCurrentSpeed(1);
             }
@@ -145,23 +144,23 @@ public class GameWorld {
                 helicopter.updateCurrentSpeed(-1);
             }
         } else if (input == -93) { //turn right
-            helicopter.updateHeading(-1);
+            helicopter.updateHeadingH(-1);
         } else if (input == -94) { //turn left
-            helicopter.updateHeading(1);
-        }*/
+            helicopter.updateHeadingH(1);
+        }
     }
 
     public void setDimension(Dimension worldSize) {
         this.worldSize = worldSize;
     }
 
-    /*public void fightFire() {
+    public void fightFire() {
         int amtWater = helicopter.getCurrentWater();
-        for (Fire fire : fires) {
+        /*for (int i = 0; i < fires.size(); i++) {
             if (fire.helicopterInRange(helicopter) && fire.getSize() > 0) {
                 fire.shrink(amtWater / 10);
             }
-        }
+        }*/
         helicopter.updateWaterLevel(-1);
     }
 
@@ -173,6 +172,6 @@ public class GameWorld {
                 helicopter.updateWaterLevel(1);
             }
         }
-    }*/
+    }
 
 }

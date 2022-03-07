@@ -3,7 +3,6 @@ package org.csc133.a2.gameobjects;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
-import com.codename1.ui.geom.Point;
 import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.interfaces.Drawable;
 
@@ -39,26 +38,18 @@ public class Helicopter extends Moveable implements Drawable {
     public void draw(Graphics g, Point2D containerOrigin){
         g.setColor(color);
 
-        g.drawLine((int)location.getX(), (int)location.getY(), (int)location.getX() +
-                updateXChange(), (int)location.getY() - updateYChange());
+        g.drawLine((int)location.getX(), (int)location.getY(),
+                (int)location.getX() + updateXChange(),
+                (int)location.getY() - updateYChange());
         g.fillArc((int)location.getX() - (int) (dim.getWidth() / 1.75),
-                (int)location.getY() - (int) (dim.getHeight() / 1.75), dim.getWidth(), dim.getHeight(), 0, 360);
-        g.drawString("F : " + fuelLevel, (int)location.getX(), (int)location.getY() +
-                (int) (2.5 * size));
-        g.drawString("W : " + waterLevel, (int)location.getX(), (int)location.getY() +
-                (int) (3.5 * size));
+                (int)location.getY() - (int) (dim.getHeight() / 1.75),
+                dim.getWidth(), dim.getHeight(), 0, 360);
+        g.drawString("F : " + fuelLevel, (int)location.getX(),
+                (int)location.getY() + (int) (2.5 * size));
+        g.drawString("W : " + waterLevel, (int)location.getX(),
+                (int)location.getY() + (int) (3.5 * size));
     }
 
-    /*public void draw(Graphics g) {
-        g.drawLine(location.getX(), location.getY(), location.getX() +
-                updateXChange(), location.getY() - updateYChange());
-        g.fillArc(location.getX() - (int) (size / 1.75),
-                location.getY() - (int) (size / 1.75), size, size, 0, 360);
-        g.drawString("F : " + fuelLevel, location.getX(), location.getY() +
-                (int) (2.5 * size));
-        g.drawString("W : " + waterLevel, location.getX(), location.getY() +
-                (int) (3.5 * size));
-    }
 
     //getter for water level. used when attempting to fight fire
     public int getCurrentWater() {
@@ -76,66 +67,66 @@ public class Helicopter extends Moveable implements Drawable {
     //getter for y location of helicopter. used for drinking, fighting fires,
     //and determining if the helicopter has landed
     public int getHVertLocation() {
-        return location.getY();
+        return (int)location.getY();
     }
 
     //getter for x location of helicopter. used for drinking, fighting fires,
     //and determining if the helicopter has landed
     public int getHHorizLocation() {
-        return location.getX();
+        return (int)location.getX();
     }
 
     //getter for speed. used for drink method and knowing if the game is over
     public int getCurrentSpeed() {
-        return speed;
+        return this.getSpeed();
     }
 
     public boolean canSpeedUp() {
-        return speed < MAX_SPEED;
+        return this.getSpeed() < MAX_SPEED;
     }
 
     public void updateCurrentSpeed(int input) {
-        speed += input;
+        this.setSpeed(input);
     }
 
     public void move() {
-        location.setX(location.getX() + (speed * updateXChange() / 10));
-        location.setY(location.getY() - (speed * updateYChange()) / 10);
-        if (speed > 0) {
+        location.setX(location.getX() + (this.getSpeed() * updateXChange() / 10));
+        location.setY(location.getY() - (this.getSpeed() * updateYChange()) / 10);
+        if (this.getSpeed() > 0) {
             speedHasChanged = true;
         }
     }
 
     public void loseFuel() {
-        fuelLevel -= speed * speed + 5;
+        fuelLevel -= this.getSpeed() * this.getSpeed() + 5;
         if (fuelLevel <= 0) {
             fuelLevel = 0;
             noFuel = true;
         }
     }
 
-    public boolean hasLanded(Point helipadCenter) {
-        int helipadSize = Game.DISP_W / 15; //same as in helipad class
+    public boolean hasLanded(Point2D helipadCenter, Helipad helipad) {
+        int helipadSize = helipad.getDim().getWidth();
         boolean inXRange = helipadCenter.getX() - helipadSize / 2 < location.getX()
                 && location.getX() < helipadCenter.getX() + helipadSize / 2;
         boolean inYRange = helipadCenter.getY() + helipadSize / 2 > location.getY()
                 && location.getY() > helipadCenter.getY() - helipadSize / 2;
-        return (speed == 0 && inXRange && inYRange);
+        return (this.getSpeed() == 0 && inXRange && inYRange);
     }
 
-    public void updateHeading(int input) {
+    public void updateHeadingH(int input) {
         if (input == -1) {
-            heading -= 15;
-            if (heading < 0) {
-                heading += 360;
+            this.updateHeading(-15);
+            if (this.getHeading() < 0) {
+                this.updateHeading(360);
             }
         } else if (input == 1) {
-            heading += 15;
-            if (heading >= 360) {
-                heading -= 360;
+            this.updateHeading(15);
+            if (this.getHeading() >= 360) {
+                this.updateHeading(-360);
             }
         }
-    }*/
+    }
 
     //setter for x value used to put tail of helicopter in direction of heading
     private int updateXChange() {
@@ -148,7 +139,7 @@ public class Helicopter extends Moveable implements Drawable {
         yChange = 2 * size * Math.cos(this.getHeading() * 0.01745329);
         return (int) Math.round(yChange);
     }
-/*
+
     //getter for fuel level. used when determining if the game is over
     public int getFuelLevel() {
         return fuelLevel;
@@ -158,6 +149,6 @@ public class Helicopter extends Moveable implements Drawable {
     //are not triggered before the player has moved
     public boolean hasMoved() {
         return speedHasChanged;
-    }*/
+    }
 
 }

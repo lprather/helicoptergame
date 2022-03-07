@@ -50,37 +50,16 @@ public class Fire extends Fixed implements Drawable {
         }
     }
 
-    /*private Point center;
-    private Point drawStart;
-    private int size;
-    private Random rand = new Random();
-
-    public Fire(int xCoord, int yCoord) {
-        center = new Point(xCoord, yCoord);
-        size = rand.nextInt(Game.getSmallDim() / 12) +
-                Game.getSmallDim() / 12 + 100;
-        drawStart = new Point(center.getX() - size / 2, center.getY() - size / 2);
-    }
-
-    public void draw(Graphics g) {
-        updateDrawStart();
-        g.setColor(ColorUtil.MAGENTA);
-        if (size > 0) {
-            g.fillArc(drawStart.getX(), drawStart.getY(), size, size, 0, 360);
-            g.drawString(" " + size + " ", center.getX() + size / 2,
-                    center.getY() + size / 2);
-        }
-    }*/
-
     //method to change where the arc representing fire should begin being drawn
     private void updateDrawStart() {
         drawStart.setX((int)location.getX() - dim.getWidth() / 2);
         drawStart.setY((int)location.getY() - dim.getHeight() / 2);
     }
 
-    /*public int grow() {
-        if (size > 0) {
-            size += rand.nextInt(5) + 5;
+    public int grow() {
+        if (dim.getWidth() > 0) {
+            dim.setWidth(dim.getWidth()+10);
+            dim.setHeight(dim.getHeight()+10);
             return 0;
         } else {
             return -1;
@@ -89,12 +68,13 @@ public class Fire extends Fixed implements Drawable {
 
     //to be used when fires are being fought
     public void shrink(int input) {
-        size -= input;
+        dim.setWidth(dim.getWidth()-input);
+        dim.setHeight(dim.getHeight()-input);
     }
 
     //getter for size. helps know when fires are out
     public int getSize() {
-        return size;
+        return dim.getWidth();
     }
 
     //determines if the helicopter is close enough to a fire to put it out
@@ -116,7 +96,7 @@ public class Fire extends Fixed implements Drawable {
 
     //getter for x coordinate. used for knowing if fire is on screen
     public int getXCoord() {
-        return center.getX();
-    }*/
+        return (int)location.getX();
+    }
 
 }
