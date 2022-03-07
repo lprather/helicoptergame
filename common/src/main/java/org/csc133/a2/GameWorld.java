@@ -101,8 +101,8 @@ public class GameWorld {
                 }*/
             }
         }
-        if (helicopter.hasLanded(helipad.getCenter(), helipad) && helicopter.hasMoved()
-                && numFiresOut == 3) {
+        if (helicopter.hasLanded(helipad.getCenter(),
+                helipad) && helicopter.hasMoved() && numFiresOut == 3) {
             gameIsOver = true;
             gameWon = true;
         } else if (helicopter.getFuelLevel() <= 0) {
@@ -174,4 +174,31 @@ public class GameWorld {
         }
     }
 
+    public String getHelicopterHeading() {
+        return " " + helicopter.getHeading();
+    }
+
+    public String getHelicopterSpeed() {
+        return " " + helicopter.getCurrentSpeed();
+    }
+
+    public String getHelicopterFuel() {
+        return " " + helicopter.getFuelLevel();
+    }
+
+    public String getNumFires() {
+        return " " + fires.size();
+    }
+
+    public String getTotalFireSize() {
+        return "ADD ME";
+    }
+
+    public String getTotalDamage() {
+        return "ADD ME";
+    }
+
+    public String getLoss() {
+        return "ADD ME";
+    }
 }

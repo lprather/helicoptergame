@@ -10,7 +10,7 @@ public class Helicopter extends Moveable implements Drawable {
 
     private double xChange;
     private double yChange;
-    private int size;
+    private final int size;
     private int fuelLevel;
     private int waterLevel;
     private boolean noFuel;
@@ -90,8 +90,10 @@ public class Helicopter extends Moveable implements Drawable {
     }
 
     public void move() {
-        location.setX(location.getX() + (this.getSpeed() * updateXChange() / 10));
-        location.setY(location.getY() - (this.getSpeed() * updateYChange()) / 10);
+        location.setX(location.getX() +
+                (this.getSpeed() * updateXChange() / 10));
+        location.setY(location.getY() -
+                (this.getSpeed() * updateYChange()) / 10);
         if (this.getSpeed() > 0) {
             speedHasChanged = true;
         }
@@ -107,9 +109,11 @@ public class Helicopter extends Moveable implements Drawable {
 
     public boolean hasLanded(Point2D helipadCenter, Helipad helipad) {
         int helipadSize = helipad.getDim().getWidth();
-        boolean inXRange = helipadCenter.getX() - helipadSize / 2 < location.getX()
+        boolean inXRange = helipadCenter.getX() -
+                helipadSize / 2 < location.getX()
                 && location.getX() < helipadCenter.getX() + helipadSize / 2;
-        boolean inYRange = helipadCenter.getY() + helipadSize / 2 > location.getY()
+        boolean inYRange = helipadCenter.getY() +
+                helipadSize / 2 > location.getY()
                 && location.getY() > helipadCenter.getY() - helipadSize / 2;
         return (this.getSpeed() == 0 && inXRange && inYRange);
     }

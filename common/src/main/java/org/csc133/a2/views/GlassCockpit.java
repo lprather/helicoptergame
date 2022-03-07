@@ -45,8 +45,14 @@ public class GlassCockpit extends Container {
 
     }
 
-    public void update() {
-
+    public void update(GameWorld gw) {
+        heading.setText(gw.getHelicopterHeading());
+        speed.setText(gw.getHelicopterSpeed());
+        fuel.setText(gw.getHelicopterFuel());
+        fires.setText(gw.getNumFires());
+        fireSize.setText(gw.getTotalFireSize());
+        damage.setText(gw.getTotalDamage());
+        loss.setText(gw.getLoss());
     }
 
 }
