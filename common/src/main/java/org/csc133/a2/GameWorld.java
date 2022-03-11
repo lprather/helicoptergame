@@ -1,3 +1,8 @@
+/* CSC 133-03, Professor Posnett
+   Assignment A2 check-in
+   Lauren Prather, #9545
+ */
+
 package org.csc133.a2;
 
 import com.codename1.ui.Dialog;
@@ -143,10 +148,10 @@ public class GameWorld {
             if (helicopter.getCurrentSpeed() > 0) {
                 helicopter.updateCurrentSpeed(-1);
             }
-        } else if (input == -93) { //turn right
-            helicopter.updateHeadingH(-1);
-        } else if (input == -94) { //turn left
-            helicopter.updateHeadingH(1);
+        } else if (input == -93) { //turn left
+            helicopter.steerLeft();
+        } else if (input == -94) { //turn right
+            helicopter.steerRight();
         }
     }
 

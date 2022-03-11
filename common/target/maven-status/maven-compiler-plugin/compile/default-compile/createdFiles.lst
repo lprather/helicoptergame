@@ -8,6 +8,7 @@ org\csc133\a2\GameWorld.class
 org\csc133\a2\gameobjects\Moveable.class
 org\csc133\a2\AppMain.class
 org\csc133\a2\gameobjects\Group.class
+org\csc133\a2\interfaces\Steerable.class
 org\csc133\a2\views\MapView.class
 org\csc133\a2\gameobjects\Fixed.class
 org\csc133\a2\gameobjects\Fire.class

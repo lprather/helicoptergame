@@ -1,3 +1,8 @@
+/* CSC 133-03, Professor Posnett
+   Assignment A2 check-in
+   Lauren Prather, #9545
+ */
+
 package org.csc133.a2.gameobjects;
 
 import com.codename1.charts.util.ColorUtil;
@@ -5,8 +10,9 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.interfaces.Drawable;
+import org.csc133.a2.interfaces.Steerable;
 
-public class Helicopter extends Moveable implements Drawable {
+public class Helicopter extends Moveable implements Drawable, Steerable {
 
     private double xChange;
     private double yChange;
@@ -118,20 +124,6 @@ public class Helicopter extends Moveable implements Drawable {
         return (this.getSpeed() == 0 && inXRange && inYRange);
     }
 
-    public void updateHeadingH(int input) {
-        if (input == -1) {
-            this.updateHeading(-15);
-            if (this.getHeading() < 0) {
-                this.updateHeading(360);
-            }
-        } else if (input == 1) {
-            this.updateHeading(15);
-            if (this.getHeading() >= 360) {
-                this.updateHeading(-360);
-            }
-        }
-    }
-
     //setter for x value used to put tail of helicopter in direction of heading
     private int updateXChange() {
         xChange = 2 * size * Math.sin(this.getHeading() * 0.01745329);
@@ -155,4 +147,19 @@ public class Helicopter extends Moveable implements Drawable {
         return speedHasChanged;
     }
 
+    @Override
+    public void steerLeft() {
+        this.updateHeading(-15);
+        if (this.getHeading() < 0){
+            this.updateHeading(360);
+        }
+    }
+
+    @Override
+    public void steerRight() {
+        this.updateHeading(15);
+        if (this.getHeading() >= 360) {
+            this.updateHeading(-360);
+        }
+    }
 }
