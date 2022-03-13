@@ -96,14 +96,13 @@ public class GameWorld {
     void tick() {
         helicopter.move();
         helicopter.loseFuel();
-        if (rand.nextInt(40) == 0) {
-            for (int i = 0; i < 3; i++) {
-                //if the fire size is not larger than 0
-                //set it off-screen and tell game it's out
-                /*if (fires[i].grow() == -1 && fires[i].getXCoord() >= 0) {
-                    fires[i] = new Fire(-1000, -1000);
-                    numFiresOut++;
-                }*/
+        for (int i = 0; i < fires.size(); i++) {
+            if (rand.nextInt(60) == 0) {
+                Fire tmpFire = (Fire) fires.getGameObjects().get(i);
+                if (tmpFire.grow() == -1 && tmpFire.getXCoord() >= 0) {
+                    fires.remove(tmpFire);
+                    gameObjects.remove(tmpFire);
+                }
             }
         }
         if (helicopter.hasLanded(helipad.getCenter(),

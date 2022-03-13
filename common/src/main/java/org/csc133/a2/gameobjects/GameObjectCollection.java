@@ -31,7 +31,7 @@ public abstract class GameObjectCollection<T> extends GameObject implements Iter
         gameObjects = new ArrayList<>();
     }
 
-    ArrayList<T> getGameObjects(){
+    public ArrayList<T> getGameObjects(){
         return gameObjects;
     }
 
