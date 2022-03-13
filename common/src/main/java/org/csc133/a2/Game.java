@@ -9,6 +9,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.UITimer;
+import org.csc133.a2.commands.*;
 import org.csc133.a2.views.ControlCluster;
 import org.csc133.a2.views.GlassCockpit;
 import org.csc133.a2.views.MapView;
@@ -32,13 +33,13 @@ public class Game extends Form implements Runnable {
         this.add(BorderLayout.CENTER, mapView);
         this.add(BorderLayout.SOUTH, controlView);
 
-        addKeyListener('Q', (evt) -> gw.quit());
-        addKeyListener(-91, (evt) -> gw.handleInputKey(-91)); //up arrow
-        addKeyListener(-92, (evt) -> gw.handleInputKey(-92)); //down arrow
-        addKeyListener(-93, (evt) -> gw.handleInputKey(-93)); //left arrow
-        addKeyListener(-94, (evt) -> gw.handleInputKey(-94)); //right arrow
-        addKeyListener('f', (evt) -> gw.fightFire());
-        addKeyListener('d', (evt) -> gw.drink());
+        addKeyListener('Q', new ExitCommand(gw));
+        addKeyListener(-91, new AccelerateCommand(gw)); //up arrow
+        addKeyListener(-92, new BrakeCommand(gw)); //down arrow
+        addKeyListener(-93, new TurnLeftCommand(gw)); //left arrow
+        addKeyListener(-94, new TurnRightCommand(gw)); //right arrow
+        addKeyListener('f', new FightCommand(gw));
+        addKeyListener('d', new DrinkCommand(gw));
 
         UITimer timer = new UITimer(this);
         timer.schedule(100, true, this);
@@ -48,7 +49,6 @@ public class Game extends Form implements Runnable {
 
     public void paint(Graphics g) {
         super.paint(g);
-        gw.draw(g);
     }
 
     @Override

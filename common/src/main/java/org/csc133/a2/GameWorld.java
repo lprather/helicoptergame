@@ -91,8 +91,6 @@ public class GameWorld {
 
     }
 
-    void draw(Graphics g) {}
-
     void tick() {
         helicopter.move();
         helicopter.loseFuel();
@@ -118,19 +116,19 @@ public class GameWorld {
                     "I'm done playing")) {
                 init();
             } else {
-                quit();
+                exit();
             }
         } else if (gameIsOver) {
             if (Dialog.show("Game Over!!", "You did not win :(", "play again!",
                     "I'm done playing")) {
                 init();
             } else {
-                quit();
+                exit();
             }
         }
     }
 
-    public void quit() {
+    public void exit() {
         Display.getInstance().exitApplication();
     }
 
@@ -138,7 +136,7 @@ public class GameWorld {
         return gameObjects;
     }
 
-    public void handleInputKey(int input) {
+    /*public void handleInputKey(int input) {
         if (input == -91) { //speed increase
             if (helicopter.canSpeedUp()) {
                 helicopter.updateCurrentSpeed(1);
@@ -152,13 +150,33 @@ public class GameWorld {
         } else if (input == -94) { //turn right
             helicopter.steerRight();
         }
+    }*/
+
+    public void turnLeft(){
+        helicopter.steerLeft();
+    }
+
+    public void turnRight(){
+        helicopter.steerRight();
+    }
+
+    public void accelerate(){
+        if (helicopter.canSpeedUp()) {
+            helicopter.updateCurrentSpeed(1);
+        }
+    }
+
+    public void brake(){
+        if (helicopter.getCurrentSpeed() > 0) {
+            helicopter.updateCurrentSpeed(-1);
+        }
     }
 
     public void setDimension(Dimension worldSize) {
         this.worldSize = worldSize;
     }
 
-    public void fightFire() {
+    public void fight() {
         int amtWater = helicopter.getCurrentWater();
         /*for (int i = 0; i < fires.size(); i++) {
             if (fire.helicopterInRange(helicopter) && fire.getSize() > 0) {
