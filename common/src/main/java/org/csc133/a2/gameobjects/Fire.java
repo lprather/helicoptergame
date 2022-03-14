@@ -61,14 +61,9 @@ public class Fire extends Fixed implements Drawable {
         drawStart.setY((int)location.getY() - dim.getHeight() / 2);
     }
 
-    public int grow() {
-        if (dim.getWidth() > 0) {
-            dim.setWidth(dim.getWidth()+10);
-            dim.setHeight(dim.getHeight()+10);
-            return 0;
-        } else {
-            return -1;
-        }
+    public void grow() {
+        dim.setWidth(dim.getWidth() + 10);
+        dim.setHeight(dim.getHeight() + 10);
     }
 
     //to be used when fires are being fought
@@ -97,11 +92,6 @@ public class Fire extends Fixed implements Drawable {
             }
         }
         return result;
-    }
-
-    //getter for x coordinate. used for knowing if fire is on screen
-    public int getXCoord() {
-        return (int)location.getX();
     }
 
 }

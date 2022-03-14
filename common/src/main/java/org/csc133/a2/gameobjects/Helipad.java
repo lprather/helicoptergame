@@ -32,12 +32,9 @@ public class Helipad extends Fixed{
     }
 
     public Point2D getCenter() {
-        Point2D center = new Point2D((location.getX() + dim.getWidth() / 2),
+        return new Point2D((location.getX() + dim.getWidth() / 2),
                 (location.getY() + dim.getHeight() / 2));
-        return center;
     }
 
-    public Dimension getDim() {
-        return dim;
-    }
+    public Dimension getDim() {return dim;}
 }

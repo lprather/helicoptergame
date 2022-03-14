@@ -7,7 +7,6 @@ package org.csc133.a2;
 
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
-import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.gameobjects.*;
@@ -97,10 +96,7 @@ public class GameWorld {
         for (int i = 0; i < fires.size(); i++) {
             if (rand.nextInt(60) == 0) {
                 Fire tmpFire = (Fire) fires.getGameObjects().get(i);
-                if (tmpFire.grow() == -1 && tmpFire.getXCoord() >= 0) {
-                    fires.remove(tmpFire);
-                    gameObjects.remove(tmpFire);
-                }
+                tmpFire.grow();
             }
         }
         if (helicopter.hasLanded(helipad.getCenter(),
@@ -136,29 +132,9 @@ public class GameWorld {
         return gameObjects;
     }
 
-    /*public void handleInputKey(int input) {
-        if (input == -91) { //speed increase
-            if (helicopter.canSpeedUp()) {
-                helicopter.updateCurrentSpeed(1);
-            }
-        } else if (input == -92) { //speed decrease
-            if (helicopter.getCurrentSpeed() > 0) {
-                helicopter.updateCurrentSpeed(-1);
-            }
-        } else if (input == -93) { //turn left
-            helicopter.steerLeft();
-        } else if (input == -94) { //turn right
-            helicopter.steerRight();
-        }
-    }*/
+    public void turnLeft(){helicopter.steerLeft();}
 
-    public void turnLeft(){
-        helicopter.steerLeft();
-    }
-
-    public void turnRight(){
-        helicopter.steerRight();
-    }
+    public void turnRight(){helicopter.steerRight();}
 
     public void accelerate(){
         if (helicopter.canSpeedUp()) {
@@ -172,17 +148,22 @@ public class GameWorld {
         }
     }
 
-    public void setDimension(Dimension worldSize) {
-        this.worldSize = worldSize;
-    }
+    public void setDimension(Dimension worldSize) {this.worldSize = worldSize;}
 
+    //DOES NOT WORK, NEEDS FIXING
     public void fight() {
         int amtWater = helicopter.getCurrentWater();
-        /*for (int i = 0; i < fires.size(); i++) {
-            if (fire.helicopterInRange(helicopter) && fire.getSize() > 0) {
-                fire.shrink(amtWater / 10);
+        for (int i = 0; i < fires.size(); i++) {
+            Fire tmpFire = (Fire) fires.getGameObjects().get(i);
+            if (tmpFire.helicopterInRange(helicopter)) {
+                tmpFire.shrink(amtWater / 10);
+                //if the fire is out, remove it from fires and objects
+                if (tmpFire.getSize() <= 0){
+                    fires.remove(tmpFire);
+                    gameObjects.remove(tmpFire);
+                }
             }
-        }*/
+        }
         helicopter.updateWaterLevel(-1);
     }
 
@@ -197,30 +178,22 @@ public class GameWorld {
     }
 
     public String getHelicopterHeading() {
-        return " " + helicopter.getHeading();
+        return String.valueOf(helicopter.getHeading());
     }
 
     public String getHelicopterSpeed() {
-        return " " + helicopter.getCurrentSpeed();
+        return String.valueOf(helicopter.getCurrentSpeed());
     }
 
     public String getHelicopterFuel() {
-        return " " + helicopter.getFuelLevel();
+        return String.valueOf(helicopter.getFuelLevel());
     }
 
-    public String getNumFires() {
-        return " " + fires.size();
-    }
+    public String getNumFires() {return String.valueOf(fires.size());}
 
-    public String getTotalFireSize() {
-        return "ADD ME";
-    }
+    public String getTotalFireSize() {return "ADD ME";}
 
-    public String getTotalDamage() {
-        return "ADD ME";
-    }
+    public String getTotalDamage() {return "ADD ME";}
 
-    public String getLoss() {
-        return "ADD ME";
-    }
+    public String getLoss() {return "ADD ME";}
 }

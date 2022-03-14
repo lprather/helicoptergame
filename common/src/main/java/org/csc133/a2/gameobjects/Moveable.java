@@ -15,23 +15,13 @@ public class Moveable extends GameObject{
         speed = 0;
     }
 
-    public void move(){
+    public void move(){}
 
-    }
+    public int getHeading(){return heading;}
 
-    public int getHeading(){
-        return heading;
-    }
+    public int getSpeed(){return speed;}
 
-    public int getSpeed(){
-        return speed;
-    }
+    protected void setSpeed(int input) {speed += input;}
 
-    protected void setSpeed(int input) {
-        speed += input;
-    }
-
-    public void updateHeading(int input){
-        heading += input;
-    }
+    public void updateHeading(int input){heading += input;}
 }
