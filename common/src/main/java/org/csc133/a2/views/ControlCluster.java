@@ -5,9 +5,12 @@
 
 package org.csc133.a2.views;
 
+import com.codename1.ui.Button;
 import com.codename1.ui.Container;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.GridLayout;
 import org.csc133.a2.GameWorld;
+import org.csc133.a2.commands.*;
 
 public class ControlCluster extends Container {
 
@@ -16,12 +19,36 @@ public class ControlCluster extends Container {
     public ControlCluster(GameWorld gw) {
         this.gw = gw;
 
-        this.setLayout(new GridLayout(1,5));
-        this.add("PLACEHOLDER 1");
-        this.add("");
-        this.add("PLACEHOLDER 3");
-        this.add("");
-        this.add("PLACEHOLDER 5");
+        this.setLayout(new GridLayout(1,15));
 
+        Button left = new Button();
+        left.setCommand(new TurnLeftCommand(gw, "Left"));
+        this.add(left);
+        Button right = new Button();
+        right.setCommand(new TurnRightCommand(gw, "Right"));
+        this.add(right);
+        Button fight = new Button();
+        fight.setCommand(new FightCommand(gw, "Fight"));
+        this.add(fight);
+
+        this.add("");
+        this.add("");
+
+        Button exit = new Button();
+        exit.setCommand(new ExitCommand(gw, "Exit"));
+        this.add(exit);
+
+        this.add("");
+        this.add("");
+
+        Button drink = new Button();
+        drink.setCommand(new DrinkCommand(gw, "Drink"));
+        this.add(drink);
+        Button brake = new Button();
+        brake.setCommand(new BrakeCommand(gw, "Brake"));
+        this.add(brake);
+        Button accel = new Button();
+        accel.setCommand(new AccelerateCommand(gw, "Accel"));
+        this.add(accel);
     }
 }
