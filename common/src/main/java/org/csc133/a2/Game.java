@@ -54,6 +54,7 @@ public class Game extends Form implements Runnable {
     @Override
     public void run() {
         gw.tick();
+        cockpitView.update();
         repaint();
     }
 
