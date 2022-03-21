@@ -16,6 +16,8 @@ import java.util.Random;
 
 public class GameWorld {
 
+    private static GameWorld gameworld;
+
     private River river;
     private ArrayList<GameObject> gameObjects;
     private Dimension worldSize;
@@ -33,7 +35,14 @@ public class GameWorld {
 
     public final int MAX_WATER = 1000;
 
-    public GameWorld() {}
+   private GameWorld() {}
+
+    public static GameWorld getGameWorld(){
+       if (gameworld == null){
+           gameworld = new GameWorld();
+       }
+       return gameworld;
+    }
 
     public void init() {
 

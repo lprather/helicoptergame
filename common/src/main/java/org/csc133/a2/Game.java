@@ -14,6 +14,8 @@ import org.csc133.a2.views.ControlCluster;
 import org.csc133.a2.views.GlassCockpit;
 import org.csc133.a2.views.MapView;
 
+import static org.csc133.a2.GameWorld.getGameWorld;
+
 public class Game extends Form implements Runnable {
 
     private GameWorld gw;
@@ -22,7 +24,7 @@ public class Game extends Form implements Runnable {
     private ControlCluster controlView;
 
     public Game() {
-        gw = new GameWorld();
+        gw = getGameWorld();
 
         mapView = new MapView(gw);
         cockpitView = new GlassCockpit(gw);
