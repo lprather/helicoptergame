@@ -1,5 +1,5 @@
 /* CSC 133-03, Professor Posnett
-   Assignment A2 check-in
+   Assignment A2 full submission
    Lauren Prather, #9545
  */
 
@@ -35,7 +35,7 @@ public class GameWorld {
 
     public final int MAX_WATER = 1000;
 
-   private GameWorld() {}
+    private GameWorld() {}
 
     public static GameWorld getGameWorld(){
        if (gameworld == null){

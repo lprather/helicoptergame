@@ -1,5 +1,5 @@
 /* CSC 133-03, Professor Posnett
-   Assignment A2 check-in
+   Assignment A2 full submission
    Lauren Prather, #9545
  */
 

@@ -1,5 +1,5 @@
 /* CSC 133-03, Professor Posnett
-   Assignment A2 check-in
+   Assignment A2 full submission
    Lauren Prather, #9545
  */
 
@@ -9,7 +9,7 @@ import com.codename1.ui.geom.Point2D;
 
 public class Fixed extends GameObject{
 
-    //public static Point2D location; //should be final
+    public final Point2D location;
 
     public Fixed(Point2D inputLocation) {
         location = inputLocation;
