@@ -10,12 +10,7 @@ public class TurnLeftCommand extends Command implements ActionListener {
     private GameWorld gw;
 
     public TurnLeftCommand(GameWorld gw) {
-        super("");
-        this.gw = gw;
-    }
-
-    public TurnLeftCommand(GameWorld gw, String input){
-        super(input);
+        super("Left");
         this.gw = gw;
     }
 

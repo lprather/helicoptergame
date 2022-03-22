@@ -9,13 +9,8 @@ public class AccelerateCommand extends Command implements ActionListener {
 
     private GameWorld gw;
 
-    public AccelerateCommand(GameWorld gw) {
-        super("");
-        this.gw = gw;
-    }
-
-    public AccelerateCommand(GameWorld gw, String input){
-        super(input);
+    public AccelerateCommand(GameWorld gw){
+        super("Accel");
         this.gw = gw;
     }
 

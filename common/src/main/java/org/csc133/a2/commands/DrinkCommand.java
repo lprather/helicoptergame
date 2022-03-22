@@ -9,13 +9,8 @@ public class DrinkCommand extends Command implements ActionListener {
 
     private GameWorld gw;
 
-    public DrinkCommand(GameWorld gw) {
-        super("");
-        this.gw = gw;
-    }
-
-    public DrinkCommand(GameWorld gw, String input){
-        super(input);
+    public DrinkCommand(GameWorld gw){
+        super("Drink");
         this.gw = gw;
     }
 

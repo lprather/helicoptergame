@@ -10,12 +10,7 @@ public class ExitCommand extends Command implements ActionListener {
     private GameWorld gw;
 
     public ExitCommand(GameWorld gw) {
-        super("");
-        this.gw = gw;
-    }
-
-    public ExitCommand(GameWorld gw, String input){
-        super(input);
+        super("Exit");
         this.gw = gw;
     }
 

@@ -9,13 +9,8 @@ public class BrakeCommand extends Command implements ActionListener {
 
     private GameWorld gw;
 
-    public BrakeCommand(GameWorld gw) {
-        super("");
-        this.gw = gw;
-    }
-
-    public BrakeCommand(GameWorld gw, String input){
-        super(input);
+    public BrakeCommand(GameWorld gw){
+        super("Brake");
         this.gw = gw;
     }
 

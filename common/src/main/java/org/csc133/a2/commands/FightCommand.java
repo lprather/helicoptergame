@@ -10,12 +10,7 @@ public class FightCommand extends Command implements ActionListener {
     private GameWorld gw;
 
     public FightCommand(GameWorld gw) {
-        super("");
-        this.gw = gw;
-    }
-
-    public FightCommand(GameWorld gw, String input){
-        super(input);
+        super("Fight");
         this.gw = gw;
     }
 

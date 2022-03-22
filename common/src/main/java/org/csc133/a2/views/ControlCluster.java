@@ -22,33 +22,33 @@ public class ControlCluster extends Container {
         this.setLayout(new GridLayout(1,15));
 
         Button left = new Button();
-        left.setCommand(new TurnLeftCommand(gw, "Left"));
+        left.setCommand(new TurnLeftCommand(gw));
         this.add(left);
         Button right = new Button();
-        right.setCommand(new TurnRightCommand(gw, "Right"));
+        right.setCommand(new TurnRightCommand(gw));
         this.add(right);
         Button fight = new Button();
-        fight.setCommand(new FightCommand(gw, "Fight"));
+        fight.setCommand(new FightCommand(gw));
         this.add(fight);
 
         this.add("");
         this.add("");
 
         Button exit = new Button();
-        exit.setCommand(new ExitCommand(gw, "Exit"));
+        exit.setCommand(new ExitCommand(gw));
         this.add(exit);
 
         this.add("");
         this.add("");
 
         Button drink = new Button();
-        drink.setCommand(new DrinkCommand(gw, "Drink"));
+        drink.setCommand(new DrinkCommand(gw));
         this.add(drink);
         Button brake = new Button();
-        brake.setCommand(new BrakeCommand(gw, "Brake"));
+        brake.setCommand(new BrakeCommand(gw));
         this.add(brake);
         Button accel = new Button();
-        accel.setCommand(new AccelerateCommand(gw, "Accel"));
+        accel.setCommand(new AccelerateCommand(gw));
         this.add(accel);
     }
 }
