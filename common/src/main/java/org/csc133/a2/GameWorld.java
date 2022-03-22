@@ -32,7 +32,9 @@ public class GameWorld {
     private boolean gameIsOver;
     private int numFiresOut;
     private boolean gameWon;
+    private int totalFireArea = 0;
 
+    private final int MAX_FUEL = 25000;
     public final int MAX_WATER = 1000;
 
     private GameWorld() {}
@@ -54,7 +56,7 @@ public class GameWorld {
 
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
-        helicopter = new Helicopter(worldSize, helipad.getCenter());
+        helicopter = new Helicopter(worldSize, helipad.getCenter(), MAX_FUEL);
 
         building1 = new Building(worldSize,
                 new Point2D(worldSize.getWidth()/7, worldSize.getHeight()/22),
@@ -103,10 +105,12 @@ public class GameWorld {
         helicopter.move();
         helicopter.loseFuel();
         for (int i = 0; i < fires.size(); i++) {
+            Fire tmpFire = (Fire) fires.getGameObjects().get(i);
+            //totalFireArea -= tmpFire.getSize();
             if (rand.nextInt(60) == 0) {
-                Fire tmpFire = (Fire) fires.getGameObjects().get(i);
                 tmpFire.grow();
             }
+            //totalFireArea += tmpFire.getSize();
         }
         if (helicopter.hasLanded(helipad.getCenter(),
                 helipad) && helicopter.hasMoved() && numFiresOut == 3) {
@@ -169,7 +173,6 @@ public class GameWorld {
                 //if the fire is out, remove it from fires and objects
                 if (tmpFire.getSize() <= 0){
                     fires.remove(tmpFire);
-                    gameObjects.remove(tmpFire);
                 }
             }
         }
@@ -200,7 +203,7 @@ public class GameWorld {
 
     public String getNumFires() {return String.valueOf(fires.size());}
 
-    public String getTotalFireSize() {return "ADD ME";}
+    public String getTotalFireSize() {return String.valueOf(totalFireArea);}
 
     public String getTotalDamage() {return "ADD ME";}
 

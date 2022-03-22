@@ -23,9 +23,8 @@ public class Helicopter extends Moveable implements Drawable, Steerable {
     private boolean speedHasChanged;
 
     private final int MAX_SPEED = 10;
-    private final int MAX_FUEL = 25000;
 
-    public Helicopter(Dimension worldSize, Point2D helicopterCenter) {
+    public Helicopter(Dimension worldSize, Point2D helicopterCenter, int initialFuel) {
         super();
         this.color = ColorUtil.YELLOW;
 
@@ -35,7 +34,7 @@ public class Helicopter extends Moveable implements Drawable, Steerable {
         this.location.setY(location.getY() + (int) (size / 1.75));
         this.dim = new Dimension(size, size);
         speedHasChanged = false;
-        fuelLevel = MAX_FUEL;
+        fuelLevel = initialFuel;
         xChange = updateXChange();
         yChange = updateXChange();
         waterLevel = 0;
