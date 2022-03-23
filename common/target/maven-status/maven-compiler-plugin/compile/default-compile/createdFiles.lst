@@ -3,11 +3,12 @@ org\csc133\a2\commands\FightCommand.class
 org\csc133\a2\gameobjects\GameObjectCollection$GameObjectIterator.class
 org\csc133\a2\gameobjects\GameObject.class
 org\csc133\a2\gameobjects\River.class
+org\csc133\a2\gameobjects\StateF.class
 org\csc133\a2\gameobjects\UnStarted.class
 org\csc133\a2\commands\ExitCommand.class
 org\csc133\a2\commands\TurnLeftCommand.class
+org\csc133\a2\gameobjects\Extinguished.class
 org\csc133\a2\gameobjects\Helicopter.class
-org\csc133\a2\gameobjects\State.class
 org\csc133\a2\interfaces\Drawable.class
 org\csc133\a2\gameobjects\Building.class
 org\csc133\a2\commands\AccelerateCommand.class

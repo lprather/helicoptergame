@@ -1,15 +1,15 @@
 package org.csc133.a2.gameobjects;
 
-public class UnStarted extends StateF {
+public class Extinguished extends StateF {
 
-    UnStarted(Fire fire) {
+    Extinguished(Fire fire) {
         super(fire);
-        //fire.setUnStarted();
+        //fire.setExtinguished();
     }
 
     @Override
     public Boolean onUnStarted() {
-        return true;
+        return false;
     }
 
     @Override
@@ -19,7 +19,6 @@ public class UnStarted extends StateF {
 
     @Override
     public Boolean onExtinguished() {
-        return false;
+        return true;
     }
-
 }

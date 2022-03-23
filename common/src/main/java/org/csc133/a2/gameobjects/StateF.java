@@ -1,10 +1,10 @@
 package org.csc133.a2.gameobjects;
 
-public abstract class State {
+public abstract class StateF {
 
     Fire fire;
 
-    State(Fire fire){
+    StateF(Fire fire){
         this.fire = fire;
     }
 

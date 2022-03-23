@@ -51,8 +51,8 @@ public class Building extends Fixed implements Drawable {
         return -1;
     }
 
-    public void setFireInBuilding(Fire inFire){
-        inFire.start();
+    public void setFireInBuilding(Fire fire){
+        fire.start();
     }
 
 }

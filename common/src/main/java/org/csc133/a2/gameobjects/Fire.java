@@ -15,9 +15,7 @@ import java.util.Random;
 
 public class Fire extends Fixed implements Drawable {
 
-    private State state;
-    private Boolean started;
-    private Boolean burning = false;
+    private StateF state;
 
     private Point2D drawStart;
     private int smallerDimOfBuilding;
@@ -31,29 +29,24 @@ public class Fire extends Fixed implements Drawable {
                         3*buildingDim.getHeight()/4)+
                         buildingDim.getHeight()/8));
 
-        this.state = new UnStarted(this);
-        setStarted(false);
+        setUnStarted();
 
         this.color = ColorUtil.MAGENTA;
 
         this.smallerDimOfBuilding = Math.min(
                 buildingDim.getWidth(), buildingDim.getHeight());
 
-        size = rand.nextInt(smallerDimOfBuilding/6) + smallerDimOfBuilding/4;
+        size = rand.nextInt(smallerDimOfBuilding/10) + smallerDimOfBuilding/8;
 
         this.dim = new Dimension(size, size);
         this.drawStart = new Point2D(0,0);
         updateDrawStart();
     }
 
-    void setStarted(boolean started) {
-        this.started = started;
-    }
-
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
 
-        //if (burning){
+        if (state.onBurning()){
             updateDrawStart();
 
             if (dim.getWidth() > 0) {
@@ -66,7 +59,7 @@ public class Fire extends Fixed implements Drawable {
                         (int)containerOrigin.getY()+(int)location.getY() +
                                 dim.getHeight() / 2);
             }
-        //}
+        }
     }
 
     //method to change where the arc representing fire should begin being drawn
@@ -108,18 +101,19 @@ public class Fire extends Fixed implements Drawable {
         return result;
     }
 
-    public void start() {
-        changeState(new Burning(this));
+    void setUnStarted(){
+        state = new UnStarted(this);
     }
 
-    public void setBurning(Burning burning) {
-        this.state = burning;
-        this.burning = true;
-        this.started = false;
+    public void start(){
+        setBurning();
     }
 
-    public void changeState(State state){
-        this.state = state;
+    public void setBurning(){
+        state = new Burning(this);
     }
 
+    public void setExtinguished(){
+        state = new Extinguished(this);
+    }
 }

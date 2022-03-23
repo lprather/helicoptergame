@@ -169,6 +169,7 @@ public class GameWorld {
     public void setDimension(Dimension worldSize) {this.worldSize = worldSize;}
 
     //DOES NOT WORK, NEEDS FIXING
+    //implement extinguished state when fire is out
     public void fight() {
         int amtWater = helicopter.getCurrentWater();
         for (int i = 0; i < fires.size(); i++) {

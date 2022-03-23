@@ -1,25 +1,25 @@
 package org.csc133.a2.gameobjects;
 
-public class Burning extends State {
+public class Burning extends StateF {
 
     Burning(Fire fire) {
         super(fire);
-        fire.setBurning(this);
+        //fire.setBurning();
     }
 
     @Override
     public Boolean onUnStarted() {
-        return null;
+        return false;
     }
 
     @Override
     public Boolean onBurning() {
-        return null;
+        return true;
     }
 
     @Override
     public Boolean onExtinguished() {
-        return null;
+        return false;
     }
 
 }
