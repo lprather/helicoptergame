@@ -169,19 +169,24 @@ public class GameWorld {
     public void setDimension(Dimension worldSize) {this.worldSize = worldSize;}
 
     //DOES NOT WORK, NEEDS FIXING
-    //implement extinguished state when fire is out
     public void fight() {
         int amtWater = helicopter.getCurrentWater();
         for (int i = 0; i < fires.size(); i++) {
             Fire tmpFire = (Fire) fires.getGameObjects().get(i);
-            if (tmpFire.helicopterInRange(helicopter)) {
-                tmpFire.shrink(amtWater / 10);
-                //if the fire is out, remove it from fires and objects
-                if (tmpFire.getSize() <= 0){
-                    fires.remove(tmpFire);
+            if (tmpFire.burning()){ //if fire is burning
+                //if the helicopter is over the fire
+                if (tmpFire.helicopterInRange(helicopter)) {
+                    //shrink the fire based on amount of water helicopter has
+                    tmpFire.shrink(amtWater / 10);
+                    //if the fire has no area, set it to extinguished
+                    if (tmpFire.getSize() <= 0){
+                        tmpFire.setExtinguished();
+                    }
                 }
             }
+
         }
+        //drain all water from the helicopter
         helicopter.updateWaterLevel(-1);
     }
 

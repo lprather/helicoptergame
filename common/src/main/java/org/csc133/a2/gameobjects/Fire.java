@@ -20,6 +20,7 @@ public class Fire extends Fixed implements Drawable {
     private Point2D drawStart;
     private int smallerDimOfBuilding;
     private int size;
+    private Point2D containerOrigin;
 
     public Fire(Point2D buildingLocation, Dimension buildingDim, Random rand){
         super(new Point2D(buildingLocation.getX()+rand.nextInt(
@@ -44,6 +45,8 @@ public class Fire extends Fixed implements Drawable {
     }
 
     public void draw(Graphics g, Point2D containerOrigin) {
+
+        this.containerOrigin = containerOrigin;
         g.setColor(color);
 
         if (state.onBurning()){
@@ -87,10 +90,11 @@ public class Fire extends Fixed implements Drawable {
     //determines if the helicopter is close enough to a fire to put it out
     public boolean helicopterInRange(Helicopter helicopter) {
         boolean result = false;
+        updateDrawStart();
         if (drawStart.getX() < helicopter.getHHorizLocation()) {
-            if (drawStart.getX() + size > helicopter.getHHorizLocation()) {
-                if (drawStart.getY() < helicopter.getHVertLocation()) {
-                    if (drawStart.getY() + size >
+            if (drawStart.getX() + dim.getWidth() > helicopter.getHHorizLocation()) {
+                if (drawStart.getY() + containerOrigin.getY() < helicopter.getHVertLocation()) {
+                    if (drawStart.getY() + containerOrigin.getY() + dim.getHeight() >
                             helicopter.getHVertLocation()) {
                         result = true;
 
@@ -115,5 +119,9 @@ public class Fire extends Fixed implements Drawable {
 
     public void setExtinguished(){
         state = new Extinguished(this);
+    }
+
+    public Boolean burning(){
+        return state.onBurning();
     }
 }
