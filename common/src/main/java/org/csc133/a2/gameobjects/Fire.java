@@ -15,6 +15,10 @@ import java.util.Random;
 
 public class Fire extends Fixed implements Drawable {
 
+    private State state;
+    private Boolean started;
+    private Boolean burning = false;
+
     private Point2D drawStart;
     private int smallerDimOfBuilding;
     private int size;
@@ -26,6 +30,10 @@ public class Fire extends Fixed implements Drawable {
                 buildingLocation.getY()+rand.nextInt(
                         3*buildingDim.getHeight()/4)+
                         buildingDim.getHeight()/8));
+
+        this.state = new UnStarted(this);
+        setStarted(false);
+
         this.color = ColorUtil.MAGENTA;
 
         this.smallerDimOfBuilding = Math.min(
@@ -38,21 +46,27 @@ public class Fire extends Fixed implements Drawable {
         updateDrawStart();
     }
 
+    void setStarted(boolean started) {
+        this.started = started;
+    }
+
     public void draw(Graphics g, Point2D containerOrigin) {
         g.setColor(color);
 
-        updateDrawStart();
+        //if (burning){
+            updateDrawStart();
 
-        if (dim.getWidth() > 0) {
-            g.fillArc((int)containerOrigin.getX()+(int)drawStart.getX(),
-                    (int)containerOrigin.getY()+(int)drawStart.getY(),
-                    dim.getWidth(), dim.getHeight(), 0, 360);
-            g.drawString(String.valueOf(dim.getWidth()),
-                    (int)containerOrigin.getX()+(int)location.getX() +
-                            dim.getWidth() / 2,
-                    (int)containerOrigin.getY()+(int)location.getY() +
-                            dim.getHeight() / 2);
-        }
+            if (dim.getWidth() > 0) {
+                g.fillArc((int)containerOrigin.getX()+(int)drawStart.getX(),
+                        (int)containerOrigin.getY()+(int)drawStart.getY(),
+                        dim.getWidth(), dim.getHeight(), 0, 360);
+                g.drawString(String.valueOf(dim.getWidth()),
+                        (int)containerOrigin.getX()+(int)location.getX() +
+                                dim.getWidth() / 2,
+                        (int)containerOrigin.getY()+(int)location.getY() +
+                                dim.getHeight() / 2);
+            }
+        //}
     }
 
     //method to change where the arc representing fire should begin being drawn
@@ -92,6 +106,20 @@ public class Fire extends Fixed implements Drawable {
             }
         }
         return result;
+    }
+
+    public void start() {
+        changeState(new Burning(this));
+    }
+
+    public void setBurning(Burning burning) {
+        this.state = burning;
+        this.burning = true;
+        this.started = false;
+    }
+
+    public void changeState(State state){
+        this.state = state;
     }
 
 }

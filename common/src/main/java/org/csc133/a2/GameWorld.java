@@ -80,17 +80,24 @@ public class GameWorld {
 
         fires = new Group();
         for (int i = rand.nextInt(2); i <= 2; i++){
-            fires.add(new Fire(building1.getLocation(),
-                    building1.getDimension(), rand));
+            Fire tmpFire = new Fire(building1.getLocation(),
+                    building1.getDimension(), rand);
+            fires.add(tmpFire);
+            building1.setFireInBuilding(tmpFire);
         }
         for (int i = rand.nextInt(2); i <= 2; i++){
-            fires.add(new Fire(building2.getLocation(),
-                    building2.getDimension(), rand));
+            Fire tmpFire = new Fire(building2.getLocation(),
+                    building2.getDimension(), rand);
+            fires.add(tmpFire);
+            building2.setFireInBuilding(tmpFire);
         }
         for (int i = rand.nextInt(2); i <= 2; i++){
-            fires.add(new Fire(building3.getLocation(),
-                    building3.getDimension(), rand));
+            Fire tmpFire = new Fire(building3.getLocation(),
+                    building3.getDimension(), rand);
+            fires.add(tmpFire);
+            building3.setFireInBuilding(tmpFire);
         }
+
 
         gameObjects = new ArrayList<>();
         gameObjects.add(river);
@@ -106,11 +113,9 @@ public class GameWorld {
         helicopter.loseFuel();
         for (int i = 0; i < fires.size(); i++) {
             Fire tmpFire = (Fire) fires.getGameObjects().get(i);
-            //totalFireArea -= tmpFire.getSize();
             if (rand.nextInt(60) == 0) {
                 tmpFire.grow();
             }
-            //totalFireArea += tmpFire.getSize();
         }
         if (helicopter.hasLanded(helipad.getCenter(),
                 helipad) && helicopter.hasMoved() && numFiresOut == 3) {

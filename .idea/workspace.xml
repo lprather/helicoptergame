@@ -4,15 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Addition of Fixed class making use of final variable to keep location from changing.">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Damage and loss of building added. In progress- to be worked on alongside setting fires in buildings.">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Burning.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/UnStarted.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/HornetsHfd-A2-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/HornetsHfd-A2-common-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/org/csc133/a2/gameobjects/Fire.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/org/csc133/a2/gameobjects/Fire.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/org/csc133/a2/gameobjects/Helicopter.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/org/csc133/a2/gameobjects/Helicopter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/codenameone/simulator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/codenameone/simulator.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/compliance-check.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/compliance-check.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -990,7 +995,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647977074212</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Damage and loss of building added. In progress- to be worked on alongside setting fires in buildings.">
+      <created>1647989626138</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1647989626138</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1017,7 +1029,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Addition of GameObject, Fixed, and Moveable classes. Not yet implemented." />
     <MESSAGE value="Changes to Fixed object type and River. Incomplete implementation of Fixed object type." />
     <MESSAGE value="Further fixing of Fixed class. Dimension and color left to be managed." />
     <MESSAGE value="Addition of partially completed classes for views. Continuing to process requirements and think through their implementation." />
@@ -1042,6 +1053,7 @@
     <MESSAGE value="GlassCockpit updating and implemented." />
     <MESSAGE value="GameWorld implemented as a Singleton." />
     <MESSAGE value="Addition of Fixed class making use of final variable to keep location from changing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Addition of Fixed class making use of final variable to keep location from changing." />
+    <MESSAGE value="Damage and loss of building added. In progress- to be worked on alongside setting fires in buildings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Damage and loss of building added. In progress- to be worked on alongside setting fires in buildings." />
   </component>
 </project>
