@@ -54,7 +54,7 @@ public class GlassCockpit extends Container {
         heading.setText(gw.getHelicopterHeading());
         speed.setText(gw.getHelicopterSpeed());
         fuel.setText(gw.getHelicopterFuel());
-        fires.setText(gw.getNumFires());
+        fires.setText(gw.getNumFiresAsString());
         fireSize.setText(gw.getTotalFireSize());
         damage.setText(gw.getTotalDamageAsString());
         loss.setText(gw.getLoss());

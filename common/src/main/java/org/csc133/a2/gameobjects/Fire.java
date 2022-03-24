@@ -124,4 +124,12 @@ public class Fire extends Fixed implements Drawable {
     public Boolean burning(){
         return state.onBurning();
     }
+
+    public boolean isExtinguished() {
+        return state.onExtinguished();
+    }
+
+    public boolean isBurning() {
+        return state.onBurning();
+    }
 }

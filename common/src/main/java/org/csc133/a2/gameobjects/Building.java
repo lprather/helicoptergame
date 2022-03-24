@@ -57,7 +57,9 @@ public class Building extends Fixed implements Drawable {
         int totalDamage = 0;
         for (int i = 0; i < fires.size(); i++){
             Fire tmp = (Fire) fires.getGameObjects().get(i);
-            totalDamage += tmp.getSize();
+            if (tmp.getSize() > 0 && tmp.isBurning()){
+                totalDamage += tmp.getSize();
+            }
         }
         totalDamage = totalDamage/buildingArea;
         return totalDamage;

@@ -29,8 +29,7 @@ public class GameWorld {
     private Group fires;
     private Random rand;
     private Helicopter helicopter;
-    private boolean gameIsOver;
-    private int numFiresOut;
+    private String gameIsOver;
     private boolean gameWon;
     private int totalFireArea = 0;
 
@@ -49,8 +48,7 @@ public class GameWorld {
     public void init() {
 
         gameWon = false;
-        numFiresOut = 0;
-        gameIsOver = false;
+        gameIsOver = "";
 
         rand = new Random();
 
@@ -116,18 +114,22 @@ public class GameWorld {
         helicopter.loseFuel();
         for (int i = 0; i < fires.size(); i++) {
             Fire tmpFire = (Fire) fires.getGameObjects().get(i);
-            if (rand.nextInt(60) == 0) {
-                tmpFire.grow();
+            if (!tmpFire.isExtinguished()){
+                if (rand.nextInt(60) == 0) {
+                    tmpFire.grow();
+                }
             }
         }
         if (helicopter.hasLanded(helipad.getCenter(),
-                helipad) && helicopter.hasMoved() && numFiresOut == 3) {
-            gameIsOver = true;
+                helipad) && helicopter.hasMoved() && getNumFires() == 0) {
+            gameIsOver = "Fires all out";
             gameWon = true;
         } else if (helicopter.getFuelLevel() <= 0) {
-            gameIsOver = true;
+            gameIsOver = "You ran out of fuel!";
+        } else if (getTotalDamage() == 100){
+            gameIsOver = "The buildings were destroyed!";
         }
-        if (gameIsOver && gameWon) {
+        if (!gameIsOver.equals("") && gameWon) {
             if (Dialog.show("Game Over!!", "Your score is " +
                             helicopter.getFuelLevel(), "play again!",
                     "I'm done playing")) {
@@ -135,8 +137,8 @@ public class GameWorld {
             } else {
                 exit();
             }
-        } else if (gameIsOver) {
-            if (Dialog.show("Game Over!!", "You did not win :(", "play again!",
+        } else if (!gameIsOver.equals("")) {
+            if (Dialog.show("Game Over!!", gameIsOver, "play again!",
                     "I'm done playing")) {
                 init();
             } else {
@@ -144,6 +146,17 @@ public class GameWorld {
             }
         }
     }
+
+    /*private int getNumFiresOut(){
+        int num = 0;
+        for (int i = 0; i < fires.size(); i++){
+            Fire tmp = (Fire) fires.getGameObjects().get(i);
+            if (tmp.isExtinguished()){
+                num++;
+            }
+        }
+        return num;
+    }*/
 
     public void exit() {
         Display.getInstance().exitApplication();
@@ -214,13 +227,28 @@ public class GameWorld {
         return String.valueOf(helicopter.getFuelLevel());
     }
 
-    public String getNumFires() {return String.valueOf(fires.size());}
+    public int getNumFires(){
+        int num = 0;
+        for (int i = 0; i < fires.size(); i++){
+            Fire tmp = (Fire) fires.getGameObjects().get(i);
+            if (!tmp.isExtinguished()){
+                num++;
+            }
+        }
+        return num;
+    }
+
+    public String getNumFiresAsString() {
+        return String.valueOf(getNumFires());
+    }
 
     public String getTotalFireSize() {
         totalFireArea = 0;
         for (int i = 0; i < fires.size(); i++){
             Fire tmp = (Fire) fires.getGameObjects().get(i);
-            totalFireArea += tmp.getSize();
+            if (tmp.isBurning()){
+                totalFireArea += tmp.getSize();
+            }
         }
         return String.valueOf(totalFireArea);
     }
