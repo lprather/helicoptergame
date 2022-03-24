@@ -83,18 +83,21 @@ public class GameWorld {
             Fire tmpFire = new Fire(building1.getLocation(),
                     building1.getDimension(), rand);
             fires.add(tmpFire);
+            building1.addFire(tmpFire);
             building1.setFireInBuilding(tmpFire);
         }
         for (int i = rand.nextInt(2); i <= 2; i++){
             Fire tmpFire = new Fire(building2.getLocation(),
                     building2.getDimension(), rand);
             fires.add(tmpFire);
+            building2.addFire(tmpFire);
             building2.setFireInBuilding(tmpFire);
         }
         for (int i = rand.nextInt(2); i <= 2; i++){
             Fire tmpFire = new Fire(building3.getLocation(),
                     building3.getDimension(), rand);
             fires.add(tmpFire);
+            building3.addFire(tmpFire);
             building3.setFireInBuilding(tmpFire);
         }
 
@@ -168,7 +171,6 @@ public class GameWorld {
 
     public void setDimension(Dimension worldSize) {this.worldSize = worldSize;}
 
-    //DOES NOT WORK, NEEDS FIXING
     public void fight() {
         int amtWater = helicopter.getCurrentWater();
         for (int i = 0; i < fires.size(); i++) {
@@ -214,9 +216,39 @@ public class GameWorld {
 
     public String getNumFires() {return String.valueOf(fires.size());}
 
-    public String getTotalFireSize() {return String.valueOf(totalFireArea);}
+    public String getTotalFireSize() {
+        totalFireArea = 0;
+        for (int i = 0; i < fires.size(); i++){
+            Fire tmp = (Fire) fires.getGameObjects().get(i);
+            totalFireArea += tmp.getSize();
+        }
+        return String.valueOf(totalFireArea);
+    }
 
-    public String getTotalDamage() {return "ADD ME";}
+    public String getTotalDamageAsString() {
+        return getTotalDamage() + "%";
+    }
 
-    public String getLoss() {return "ADD ME";}
+    public int getTotalDamage(){
+        int totalDamage = 0;
+        for (int i = 0; i < buildings.size(); i++){
+            Building tmpB = (Building) buildings.getGameObjects().get(i);
+            totalDamage += tmpB.getBuildingDamage();
+        }
+        totalDamage /= 3;
+        return totalDamage;
+    }
+
+    public String getLoss() {
+        return String.valueOf(getTotalDamage()*(getBuildingCost()/100));
+    }
+
+    private int getBuildingCost(){
+        int bArea = 0;
+        for (int i = 0; i < buildings.size(); i++){
+            Building tmpB = (Building) buildings.getGameObjects().get(i);
+            bArea += tmpB.getCost();
+        }
+        return bArea;
+    }
 }

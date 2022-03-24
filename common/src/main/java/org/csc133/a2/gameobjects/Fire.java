@@ -56,7 +56,7 @@ public class Fire extends Fixed implements Drawable {
                 g.fillArc((int)containerOrigin.getX()+(int)drawStart.getX(),
                         (int)containerOrigin.getY()+(int)drawStart.getY(),
                         dim.getWidth(), dim.getHeight(), 0, 360);
-                g.drawString(String.valueOf(dim.getWidth()),
+                g.drawString(String.valueOf(getSize()),
                         (int)containerOrigin.getX()+(int)location.getX() +
                                 dim.getWidth() / 2,
                         (int)containerOrigin.getY()+(int)location.getY() +

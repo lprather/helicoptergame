@@ -14,7 +14,8 @@ import org.csc133.a2.interfaces.Drawable;
 public class Building extends Fixed implements Drawable {
 
     private int buildingCost;
-    private int buildingDamage;
+    private Group fires = new Group();
+    private int buildingArea;
 
     public Building(Dimension worldSize, Point2D inputLocation,
                     Dimension inputDim){
@@ -23,6 +24,7 @@ public class Building extends Fixed implements Drawable {
         this.color = ColorUtil.rgb(255,0,0);
         this.dim = inputDim;
         this.buildingCost = Math.round((this.dim.getWidth() * this.dim.getHeight()) / 20000) * 100;
+        this.buildingArea = (this.dim.getWidth() * this.dim.getHeight())/10000;
     }
 
     public void draw(Graphics g, Point2D containerOrigin) {
@@ -36,7 +38,7 @@ public class Building extends Fixed implements Drawable {
                         + dim.getWidth() + 20,
                 (int)containerOrigin.getY()+(int)this.location.getY()
                         + dim.getHeight() + 20);
-        g.drawString("D: " + updateBuildingDamage() + "%",
+        g.drawString("D: " + getBuildingDamage() + "%",
                 (int)containerOrigin.getX()+(int)this.location.getX()
                         + dim.getWidth() + 20,
                 (int)containerOrigin.getY()+(int)this.location.getY()
@@ -47,12 +49,25 @@ public class Building extends Fixed implements Drawable {
 
     public Point2D getLocation() {return this.location;}
 
-    private int updateBuildingDamage(){
-        return -1;
+    public void addFire(Fire fire){
+        fires.add(fire);
+    }
+
+    public int getBuildingDamage(){
+        int totalDamage = 0;
+        for (int i = 0; i < fires.size(); i++){
+            Fire tmp = (Fire) fires.getGameObjects().get(i);
+            totalDamage += tmp.getSize();
+        }
+        totalDamage = totalDamage/buildingArea;
+        return totalDamage;
     }
 
     public void setFireInBuilding(Fire fire){
         fire.start();
     }
 
+    public int getCost(){
+        return this.buildingCost;
+    }
 }
