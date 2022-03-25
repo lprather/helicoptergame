@@ -5,6 +5,7 @@
 
 package org.csc133.a2.interfaces;
 
+//for objects that can be steered
 public interface Steerable {
 
     void steerLeft();

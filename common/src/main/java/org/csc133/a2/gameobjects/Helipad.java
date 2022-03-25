@@ -8,6 +8,7 @@ package org.csc133.a2.gameobjects;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
+import com.codename1.ui.geom.Point;
 import com.codename1.ui.geom.Point2D;
 
 public class Helipad extends Fixed{
@@ -31,10 +32,13 @@ public class Helipad extends Fixed{
                 dim.getHeight() - 20, 0, 360); //inner circle
     }
 
-    public Point2D getCenter() {
-        return new Point2D((location.getX() + dim.getWidth() / 2),
-                (location.getY() + dim.getHeight() / 2));
+
+    //getter for center. used in relation to helicopter
+    public Point getCenter() {
+        return new Point((int)(location.getX() + dim.getWidth() / 2),
+                (int)(location.getY() + dim.getHeight() / 2));
     }
 
+    //getter for dimension. used to determine if the helicopter is inside
     public Dimension getDim() {return dim;}
 }

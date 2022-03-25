@@ -52,10 +52,12 @@ public class GameWorld {
 
         rand = new Random();
 
+        //place river, helipad, and helicopter
         river = new River(worldSize);
         helipad = new Helipad(worldSize);
         helicopter = new Helicopter(worldSize, helipad.getCenter(), MAX_FUEL);
 
+        //place buildings
         building1 = new Building(worldSize,
                 new Point2D(worldSize.getWidth()/7, worldSize.getHeight()/22),
                 new Dimension(5*worldSize.getWidth()/7,
@@ -76,6 +78,8 @@ public class GameWorld {
         buildings.add(building2);
         buildings.add(building3);
 
+        //for each of the buildings, place two or three fires inside
+        //start the fires
         fires = new Group();
         for (int i = rand.nextInt(2); i <= 2; i++){
             Fire tmpFire = new Fire(building1.getLocation(),
@@ -99,7 +103,7 @@ public class GameWorld {
             building3.setFireInBuilding(tmpFire);
         }
 
-
+        //adding game objects to collection
         gameObjects = new ArrayList<>();
         gameObjects.add(river);
         gameObjects.add(helipad);
@@ -110,8 +114,10 @@ public class GameWorld {
     }
 
     void tick() {
+        //move helicopter and lose fuel
         helicopter.move();
         helicopter.loseFuel();
+        //randomly grow fires if they are still burning
         for (int i = 0; i < fires.size(); i++) {
             Fire tmpFire = (Fire) fires.getGameObjects().get(i);
             if (!tmpFire.isExtinguished()){
@@ -120,6 +126,7 @@ public class GameWorld {
                 }
             }
         }
+        //determining if the game is over and the reason why
         if (helicopter.hasLanded(helipad.getCenter(),
                 helipad) && helicopter.hasMoved() && getNumFires() == 0) {
             gameIsOver = "Fires all out";
@@ -129,6 +136,8 @@ public class GameWorld {
         } else if (getTotalDamage() == 100){
             gameIsOver = "The buildings were destroyed!";
         }
+        //if the game is over, display score or reason for loss and give
+        //options to replay or quit
         if (!gameIsOver.equals("") && gameWon) {
             if (Dialog.show("Game Over!!", "Your score is " +
                             helicopter.getFuelLevel(), "play again!",
@@ -147,35 +156,28 @@ public class GameWorld {
         }
     }
 
-    /*private int getNumFiresOut(){
-        int num = 0;
-        for (int i = 0; i < fires.size(); i++){
-            Fire tmp = (Fire) fires.getGameObjects().get(i);
-            if (tmp.isExtinguished()){
-                num++;
-            }
-        }
-        return num;
-    }*/
+    //exits the game. called from exit command
+    public void exit() {Display.getInstance().exitApplication();}
 
-    public void exit() {
-        Display.getInstance().exitApplication();
-    }
-
+    //getter for game objects. needed so they can be drawn from map view
     public ArrayList<GameObject> getGameObjectCollection(){
         return gameObjects;
     }
 
+    //steers helicopter to the left
     public void turnLeft(){helicopter.steerLeft();}
 
+    //steers helicopter to the right
     public void turnRight(){helicopter.steerRight();}
 
+    //speeds up helicopter
     public void accelerate(){
         if (helicopter.canSpeedUp()) {
             helicopter.updateCurrentSpeed(1);
         }
     }
 
+    //slows down helicopter
     public void brake(){
         if (helicopter.getCurrentSpeed() > 0) {
             helicopter.updateCurrentSpeed(-1);
@@ -184,11 +186,12 @@ public class GameWorld {
 
     public void setDimension(Dimension worldSize) {this.worldSize = worldSize;}
 
+    //fights fires by dropping water
     public void fight() {
         int amtWater = helicopter.getCurrentWater();
         for (int i = 0; i < fires.size(); i++) {
             Fire tmpFire = (Fire) fires.getGameObjects().get(i);
-            if (tmpFire.burning()){ //if fire is burning
+            if (tmpFire.isBurning()){ //if fire is burning
                 //if the helicopter is over the fire
                 if (tmpFire.helicopterInRange(helicopter)) {
                     //shrink the fire based on amount of water helicopter has
@@ -205,6 +208,8 @@ public class GameWorld {
         helicopter.updateWaterLevel(-1);
     }
 
+    //attempts to drink water if in range of the river, speed of the helicopter
+    //is less than or equal to 2, and there is capacity in the tank
     public void drink() {
         if (river.getLowerRiverBound() > helicopter.getHVertLocation() &&
                 helicopter.getHVertLocation() > river.getUpperRiverBound() &&
@@ -215,18 +220,22 @@ public class GameWorld {
         }
     }
 
+    //returns current heading of helicopter
     public String getHelicopterHeading() {
         return String.valueOf(helicopter.getHeading());
     }
 
+    //returns current speed of helicopter
     public String getHelicopterSpeed() {
         return String.valueOf(helicopter.getCurrentSpeed());
     }
 
+    //returns current fuel level of helicopter
     public String getHelicopterFuel() {
         return String.valueOf(helicopter.getFuelLevel());
     }
 
+    //returns number of fires burning as an int
     public int getNumFires(){
         int num = 0;
         for (int i = 0; i < fires.size(); i++){
@@ -238,10 +247,12 @@ public class GameWorld {
         return num;
     }
 
+    //returns number of fires burning as a string
     public String getNumFiresAsString() {
         return String.valueOf(getNumFires());
     }
 
+    //returns size of all fires combined
     public String getTotalFireSize() {
         totalFireArea = 0;
         for (int i = 0; i < fires.size(); i++){
@@ -253,10 +264,10 @@ public class GameWorld {
         return String.valueOf(totalFireArea);
     }
 
-    public String getTotalDamageAsString() {
-        return getTotalDamage() + "%";
-    }
+    //returns total damage to buildings as a string
+    public String getTotalDamageAsString() {return getTotalDamage() + "%";}
 
+    //returns total damage to buildings as an int
     public int getTotalDamage(){
         int totalDamage = 0;
         for (int i = 0; i < buildings.size(); i++){
@@ -267,10 +278,12 @@ public class GameWorld {
         return totalDamage;
     }
 
+    //returns loss incurred
     public String getLoss() {
         return String.valueOf(getTotalDamage()*(getBuildingCost()/100));
     }
 
+    //returns total cost of buildings
     private int getBuildingCost(){
         int bArea = 0;
         for (int i = 0; i < buildings.size(); i++){

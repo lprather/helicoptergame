@@ -23,12 +23,12 @@ public class River extends Fixed implements Drawable {
 
     //getter for top of river needed for helicopter drinking
     public int getUpperRiverBound() {
-        return (int)location.getY() + dim.getHeight();
+        return (int)(location.getY() + dim.getHeight());
     }
 
     //getter for bottom of river. needed for helicopter drinking
     public int getLowerRiverBound() {
-        return (int)location.getY() + 2*dim.getHeight();
+        return (int)(location.getY() + 2*dim.getHeight());
     }
 
     public void draw(Graphics g, Point2D containerOrigin) {

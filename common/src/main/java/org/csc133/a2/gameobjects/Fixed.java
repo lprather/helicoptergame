@@ -7,7 +7,8 @@ package org.csc133.a2.gameobjects;
 
 import com.codename1.ui.geom.Point2D;
 
-public class Fixed extends GameObject{
+//game objects that cannot be moved once placed
+public class Fixed extends GameObject {
 
     public final Point2D location;
 

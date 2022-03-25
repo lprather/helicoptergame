@@ -5,7 +5,8 @@
 
 package org.csc133.a2.gameobjects;
 
-public class Moveable extends GameObject{
+//used for objects that can be moved after initial placement
+public class Moveable extends GameObject {
 
     private int heading;
     private int speed;

@@ -23,7 +23,8 @@ public class Building extends Fixed implements Drawable {
         this.worldSize = worldSize;
         this.color = ColorUtil.rgb(255,0,0);
         this.dim = inputDim;
-        this.buildingCost = Math.round((this.dim.getWidth() * this.dim.getHeight()) / 20000) * 100;
+        this.buildingCost = Math.round((
+                this.dim.getWidth() * this.dim.getHeight()) / 20000) * 100;
         this.buildingArea = (this.dim.getWidth() * this.dim.getHeight())/10000;
     }
 
@@ -45,18 +46,22 @@ public class Building extends Fixed implements Drawable {
                         + dim.getHeight() + 50);
     }
 
+    //getter for dimension. used when placing fires inside a building
     public Dimension getDimension() {return this.dim;}
 
+    //getter for location. used when placing fires inside a building
     public Point2D getLocation() {return this.location;}
 
-    public void addFire(Fire fire){
-        fires.add(fire);
-    }
+    //adding fire object to collection of fires
+    //used when determining damage to a building
+    public void addFire(Fire fire){fires.add(fire);}
 
+    //find the damage to the building based on the size of the fires in it
     public int getBuildingDamage(){
         int totalDamage = 0;
         for (int i = 0; i < fires.size(); i++){
             Fire tmp = (Fire) fires.getGameObjects().get(i);
+            //if the fire has positive size and is burning
             if (tmp.getSize() > 0 && tmp.isBurning()){
                 totalDamage += tmp.getSize();
             }
@@ -65,11 +70,10 @@ public class Building extends Fixed implements Drawable {
         return totalDamage;
     }
 
-    public void setFireInBuilding(Fire fire){
-        fire.start();
-    }
+    //ignites a fire in the building
+    public void setFireInBuilding(Fire fire){fire.start();}
 
-    public int getCost(){
-        return this.buildingCost;
-    }
+    //getter for cost of building. used when computing total loss
+    public int getCost(){return this.buildingCost;}
+
 }

@@ -9,14 +9,16 @@ import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point2D;
+import org.csc133.a2.states.Burning;
+import org.csc133.a2.states.Extinguished;
+import org.csc133.a2.states.StateF;
+import org.csc133.a2.states.UnStarted;
 import org.csc133.a2.interfaces.Drawable;
-
 import java.util.Random;
 
 public class Fire extends Fixed implements Drawable {
 
     private StateF state;
-
     private Point2D drawStart;
     private int smallerDimOfBuilding;
     private int size;
@@ -71,31 +73,33 @@ public class Fire extends Fixed implements Drawable {
         drawStart.setY((int)location.getY() - dim.getHeight() / 2);
     }
 
+    //grows the fire by 10. called semi-randomly
     public void grow() {
         dim.setWidth(dim.getWidth() + 10);
         dim.setHeight(dim.getHeight() + 10);
     }
 
     //to be used when fires are being fought
+    //fire size is decreased by the inputted amount
     public void shrink(int input) {
         dim.setWidth(dim.getWidth()-input);
         dim.setHeight(dim.getHeight()-input);
     }
 
     //getter for size. helps know when fires are out
-    public int getSize() {
-        return dim.getWidth();
-    }
+    public int getSize() {return dim.getWidth();}
 
     //determines if the helicopter is close enough to a fire to put it out
     public boolean helicopterInRange(Helicopter helicopter) {
         boolean result = false;
         updateDrawStart();
         if (drawStart.getX() < helicopter.getHHorizLocation()) {
-            if (drawStart.getX() + dim.getWidth() > helicopter.getHHorizLocation()) {
-                if (drawStart.getY() + containerOrigin.getY() < helicopter.getHVertLocation()) {
-                    if (drawStart.getY() + containerOrigin.getY() + dim.getHeight() >
-                            helicopter.getHVertLocation()) {
+            if (drawStart.getX() + dim.getWidth() >
+                    helicopter.getHHorizLocation()) {
+                if (drawStart.getY() + containerOrigin.getY() <
+                        helicopter.getHVertLocation()) {
+                    if (drawStart.getY() + containerOrigin.getY() +
+                            dim.getHeight() > helicopter.getHVertLocation()) {
                         result = true;
 
                     }
@@ -105,30 +109,26 @@ public class Fire extends Fixed implements Drawable {
         return result;
     }
 
-    void setUnStarted(){
+    //sets state to unstarted. fires are not burning until start is called
+    private void setUnStarted(){
         state = new UnStarted(this);
     }
 
-    public void start(){
-        setBurning();
-    }
+    //starts the fire
+    public void start(){setBurning();}
 
-    public void setBurning(){
+    //sets fire state to burning. called by building it is in
+    private void setBurning(){
         state = new Burning(this);
     }
 
-    public void setExtinguished(){
-        state = new Extinguished(this);
-    }
+    //sets fire state to extinguished
+    public void setExtinguished(){state = new Extinguished(this);}
 
-    public Boolean burning(){
-        return state.onBurning();
-    }
+    //tells whether the fire is out
+    public boolean isExtinguished() {return state.onExtinguished();}
 
-    public boolean isExtinguished() {
-        return state.onExtinguished();
-    }
-
+    //tells whether the fire is actively burning
     public boolean isBurning() {
         return state.onBurning();
     }

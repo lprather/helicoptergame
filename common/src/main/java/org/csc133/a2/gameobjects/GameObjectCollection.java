@@ -8,7 +8,10 @@ package org.csc133.a2.gameobjects;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public abstract class GameObjectCollection<T> extends GameObject implements Iterable<T>{
+//collection of game objects
+//modeled after Prof. Posnett's in BirdWorld series
+public abstract class GameObjectCollection<T> extends GameObject
+        implements Iterable<T> {
 
     ArrayList<T> gameObjects;
 
@@ -17,38 +20,20 @@ public abstract class GameObjectCollection<T> extends GameObject implements Iter
         int index = 0;
 
         @Override
-        public boolean hasNext() {
-            return index < gameObjects.size();
-        }
+        public boolean hasNext() {return index < gameObjects.size();}
 
         @Override
-        public T next() {
-            return gameObjects.get(index);
-        }
+        public T next() {return gameObjects.get(index);}
     }
 
-    public GameObjectCollection(){
-        gameObjects = new ArrayList<>();
-    }
+    public GameObjectCollection(){gameObjects = new ArrayList<>();}
 
-    public ArrayList<T> getGameObjects(){
-        return gameObjects;
-    }
+    public ArrayList<T> getGameObjects(){return gameObjects;}
 
-    public void add(T gameObject){
-        gameObjects.add(gameObject);
-    }
+    public void add(T gameObject){gameObjects.add(gameObject);}
 
-    public void remove(T gameObject){
-        gameObjects.remove(gameObject);
-    }
+    public int size(){return gameObjects.size();}
 
-    public int size(){
-        return gameObjects.size();
-    }
-
-    public Iterator<T> iterator(){
-        return new GameObjectIterator();
-    }
+    public Iterator<T> iterator(){return new GameObjectIterator();}
 
 }
