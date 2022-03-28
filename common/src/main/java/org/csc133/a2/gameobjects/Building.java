@@ -34,16 +34,16 @@ public class Building extends Fixed implements Drawable {
         g.drawRect((int)containerOrigin.getX()+(int)this.location.getX(),
                 (int)containerOrigin.getY()+(int)this.location.getY(),
                 dim.getWidth(), dim.getHeight(),5);
-        g.drawString("V: " + buildingCost,
-                (int)containerOrigin.getX()+(int)this.location.getX()
-                        + dim.getWidth() + 20,
-                (int)containerOrigin.getY()+(int)this.location.getY()
-                        + dim.getHeight() + 20);
         g.drawString("D: " + getBuildingDamage() + "%",
                 (int)containerOrigin.getX()+(int)this.location.getX()
                         + dim.getWidth() + 20,
                 (int)containerOrigin.getY()+(int)this.location.getY()
                         + dim.getHeight() + 50);
+        g.drawString("V: " + updateBuildingCost(),
+                (int)containerOrigin.getX()+(int)this.location.getX()
+                        + dim.getWidth() + 20,
+                (int)containerOrigin.getY()+(int)this.location.getY()
+                        + dim.getHeight() + 20);
     }
 
     //getter for dimension. used when placing fires inside a building
@@ -68,6 +68,11 @@ public class Building extends Fixed implements Drawable {
         }
         totalDamage = totalDamage/buildingArea;
         return totalDamage;
+    }
+
+    //update current cost of building after loss
+    private int updateBuildingCost(){
+        return buildingCost - (getBuildingDamage() * buildingCost/100);
     }
 
     //ignites a fire in the building
