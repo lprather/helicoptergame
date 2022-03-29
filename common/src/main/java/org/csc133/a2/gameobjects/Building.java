@@ -16,6 +16,7 @@ public class Building extends Fixed implements Drawable {
     private int buildingCost;
     private Group fires = new Group();
     private int buildingArea;
+    private int buildingDamage = 0;
 
     public Building(Dimension worldSize, Point2D inputLocation,
                     Dimension inputDim){
@@ -26,6 +27,7 @@ public class Building extends Fixed implements Drawable {
         this.buildingCost = Math.round((
                 this.dim.getWidth() * this.dim.getHeight()) / 20000) * 100;
         this.buildingArea = (this.dim.getWidth() * this.dim.getHeight())/10000;
+        this.buildingDamage = getBuildingDamage();
     }
 
     public void draw(Graphics g, Point2D containerOrigin) {
@@ -67,7 +69,11 @@ public class Building extends Fixed implements Drawable {
             }
         }
         totalDamage = totalDamage/buildingArea;
-        return totalDamage;
+        //if the damage is more than it was previously, update it
+        if (totalDamage > buildingDamage){
+            buildingDamage = totalDamage;
+        }
+        return buildingDamage;
     }
 
     //ignites a fire in the building

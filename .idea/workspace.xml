@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Value decreasing on buildings and rough formatting of buttons in the control cluster.">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Small bug fix with buildings.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/HornetsHfd-A2-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/HornetsHfd-A2-common-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/compliance-check.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/compliance-check.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1029,7 +1031,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648440901083</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Small bug fix with buildings.">
+      <created>1648442710074</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1648442710074</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1056,7 +1065,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Minor adjustments for clean code." />
     <MESSAGE value="River displayed correctly from MapView with other views shown." />
     <MESSAGE value="Changing background of MapView to black and adjustments for clean code." />
     <MESSAGE value="Addition of Helipad drawing from Mapview." />
@@ -1081,6 +1089,7 @@
     <MESSAGE value="Full implementation of GlassCockpit values." />
     <MESSAGE value="Full game play working (I believe... to be tested more thoroughly!)." />
     <MESSAGE value="Value decreasing on buildings and rough formatting of buttons in the control cluster." />
-    <option name="LAST_COMMIT_MESSAGE" value="Value decreasing on buildings and rough formatting of buttons in the control cluster." />
+    <MESSAGE value="Small bug fix with buildings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small bug fix with buildings." />
   </component>
 </project>
