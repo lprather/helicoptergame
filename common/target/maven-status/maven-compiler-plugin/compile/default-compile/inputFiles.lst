@@ -1,7 +1,6 @@
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\commands\FightCommand.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\GameObjectCollection.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\Game.java
-C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\UnStarted.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Fixed.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Building.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\commands\DrinkCommand.java
@@ -11,8 +10,8 @@ C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Fire.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\views\MapView.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Group.java
-C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Extinguished.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\views\GlassCockpit.java
+C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\states\Extinguished.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\GameObject.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\interfaces\Steerable.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Helipad.java
@@ -20,10 +19,11 @@ C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\commands\BrakeCommand.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\River.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\interfaces\Drawable.java
+C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\states\Burning.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\commands\TurnRightCommand.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\commands\ExitCommand.java
+C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\states\UnStarted.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Moveable.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\GameWorld.java
-C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Burning.java
-C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\StateF.java
+C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\states\StateF.java
 C:\Users\laure\Documents\CSC 133\HornetsHfd-A2\common\src\main\java\org\csc133\a2\gameobjects\Helicopter.java

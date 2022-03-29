@@ -140,7 +140,7 @@ public class GameWorld {
         //options to replay or quit
         if (!gameIsOver.equals("") && gameWon) {
             if (Dialog.show("Game Over!!", "Your score is " +
-                            helicopter.getFuelLevel(), "play again!",
+                            getWinningScore(), "play again!",
                     "I'm done playing")) {
                 init();
             } else {
@@ -291,5 +291,9 @@ public class GameWorld {
             bArea += tmpB.getCost();
         }
         return bArea;
+    }
+
+    private int getWinningScore(){
+        return 100 - getTotalDamage();
     }
 }
